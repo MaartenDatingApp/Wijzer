@@ -11,11 +11,15 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play DateWijzer.</tw-noscript></noscript></tw-story>
 <tw-storydata name="DateWijzer" startnode="4" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="3C186A62-F381-4A26-864B-91E7BE595708" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.base64image {
   width: 100%;
+   max-width: 100vw;
   height: auto;
+  
   /* Base64 image truncated for example */
   /* See Twee file for full version. */
   background-image: url('data:image/png;base64...');
 }
+
+tw-passage img { max-width: 100%; }
 
 
 
@@ -251,16 +255,15 @@ Bonus: Kijk elkaar vier minuten onafgebroken in de ogen zonder iets te zeggen.</
   (if: $fifa &gt; 1)[
     (goto: &quot;UitslagFifa&quot;)
   ]
-  (else-if: $aap &gt; 1)[
-    (goto: &quot;UitslaagAap&quot;)
-  ]
   (else-if: $roelvink &gt; 1)[
     (goto: &quot;Uitslagroelvink&quot;)
   ]
    (else-if: $bot &gt; 10)[
     (goto: &quot;UitslagBot&quot;)
   ] 
-  
+  (else-if: $aap &gt; 1)[
+    (goto: &quot;UitslaagAap&quot;)
+  ]
   (else:)[
     (goto: &quot;UitslagHR&quot;)
   ]
@@ -275,7 +278,7 @@ Jouw ambitie om naar Groenland te gaan en jouw bereidheid om te liegen op deze t
 [[Verder|Einde1]]</tw-passagedata><tw-passagedata pid="22" name="UitslaagAap" tags="" position="750,1925" size="100,100">&#39;&#39;Uitslag:&#39;&#39; Je bent drie generaties verwijderd van de orang-oetans.
 
 
-&lt;img src=&quot;smile-monkey.GIF&quot;&gt;
+&lt;img src=&quot;smile-monkey.gif&quot;&gt;
 
 Je afkeer van het koude Groenland verraadde je. Hoogstwaarschijnlijk loopt die afstamming via je moederskant.
 
