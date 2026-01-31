@@ -17,20 +17,18 @@
   gtag('config', 'G-HBSKP5X1V1');
   // End of google-specific code ^
   
-  // This is the custom Event Listener that will allow Twine
-  // to record your users' passage clicks
   document.addEventListener('click', function (event) {
-  if (event.target.matches('tw-link')) {	
-    console.log("A tw-link was clicked");	
-    var linkText = event.target.textContent;
-    console.log("Link text is");
-    console.log(linkText);
+    const twLink = event.target.closest('tw-link');
+    if (!twLink) return;
+
+    const linkText = twLink.textContent.trim();
+    console.log("tw-link clicked:", linkText);
+
     gtag('event', 'Navigation', {
-        'event_label': linkText,
-        'event_category': 'LinkTextClicked',
-    });					
-  }
-  }, false);    
+      event_category: 'LinkTextClicked',
+      event_label: linkText
+    });
+  }, true);
 </script> 
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play DateWijzer.</tw-noscript></noscript></tw-story>
