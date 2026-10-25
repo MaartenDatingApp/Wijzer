@@ -3,337 +3,865 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<title>DateWijzer</title>
+<title>DateWijzerV2</title>
 <style title="Twine CSS">@keyframes appear{0%{opacity:0}to{opacity:1}}@keyframes fade-in-out{0%,to{opacity:0}50%{opacity:1}}@keyframes rumble{25%{top:-0.1em}75%{top:.1em}0%,to{top:0px}}@keyframes shudder{25%{left:.1em}75%{left:-0.1em}0%,to{left:0px}}@keyframes buoy{25%{top:.25em}75%{top:-0.25em}0%,to{top:0px}}@keyframes sway{25%{left:.25em}75%{left:-0.25em}0%,to{left:0px}}@keyframes pulse{0%{transform:scale(0, 0)}20%{transform:scale(1.2, 1.2)}40%{transform:scale(0.9, 0.9)}60%{transform:scale(1.05, 1.05)}80%{transform:scale(0.925, 0.925)}to{transform:scale(1, 1)}}@keyframes zoom-in{0%{transform:scale(0, 0)}to{transform:scale(1, 1)}}@keyframes shudder-in{0%,to{transform:translateX(0em)}5%,25%,45%{transform:translateX(-1em)}15%,35%,55%{transform:translateX(1em)}65%{transform:translateX(-0.6em)}75%{transform:translateX(0.6em)}85%{transform:translateX(-0.2em)}95%{transform:translateX(0.2em)}}@keyframes rumble-in{0%,to{transform:translateY(0em)}5%,25%,45%{transform:translateY(-1em)}15%,35%,55%{transform:translateY(1em)}65%{transform:translateY(-0.6em)}75%{transform:translateY(0.6em)}85%{transform:translateY(-0.2em)}95%{transform:translateY(0.2em)}}@keyframes fidget{0%,8.1%,82.1%,31.1%,38.1%,44.1%,40.1%,47.1%,74.1%,16.1%,27.1%,72.1%,24.1%,95.1%,6.1%,36.1%,20.1%,4.1%,91.1%,14.1%,87.1%,to{left:0px;top:0px}8%,82%,31%,38%,44%{left:-1px}40%,47%,74%,16%,27%{left:1px}72%,24%,95%,6%,36%{top:-1px}20%,4%,91%,14%,87%{top:1px}}@keyframes slide-right{0%{transform:translateX(-100vw)}}@keyframes slide-left{0%{transform:translateX(100vw)}}@keyframes slide-up{0%{transform:translateY(100vh)}}@keyframes slide-down{0%{transform:translateY(-100vh)}}@keyframes fade-right{0%{opacity:0;transform:translateX(-1em)}to{opacity:1}}@keyframes fade-left{0%{opacity:0;transform:translateX(1em)}to{opacity:1}}@keyframes fade-up{0%{opacity:0;transform:translateY(1em)}to{opacity:1}}@keyframes fade-down{0%{opacity:0;transform:translateY(-1em)}to{opacity:1}}@keyframes flicker{0%,29%,31%,63%,65%,77%,79%,86%,88%,91%,93%{opacity:0}30%{opacity:.2}64%{opacity:.4}78%{opacity:.6}87%{opacity:.8}92%,to{opacity:1}}@keyframes blur{0%{filter:blur(2rem);opacity:0}25%{opacity:1}to{filter:blur(0rem);opacity:1}}.dom-debug-mode tw-story,.dom-debug-mode tw-passage,.dom-debug-mode tw-sidebar,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{outline:1px solid #f5a3da;min-height:32px;display:block !important}.dom-debug-mode tw-story::before,.dom-debug-mode tw-passage::before,.dom-debug-mode tw-sidebar::before,.dom-debug-mode tw-include::before,.dom-debug-mode tw-hook::before,.dom-debug-mode tw-expression::before,.dom-debug-mode tw-link::before,.dom-debug-mode tw-dialog::before,.dom-debug-mode tw-columns::before,.dom-debug-mode tw-column::before,.dom-debug-mode tw-align::before{position:absolute;top:0;left:0;height:16px;background-color:#f5a3da;color:#000;font-size:16px;font-weight:normal;font-style:normal;font-family:monospace;display:inline-block;line-height:100%;white-space:pre;z-index:999997}.dom-debug-mode tw-story:hover,.dom-debug-mode tw-passage:hover,.dom-debug-mode tw-sidebar:hover,.dom-debug-mode tw-include:hover,.dom-debug-mode tw-hook:hover,.dom-debug-mode tw-expression:hover,.dom-debug-mode tw-link:hover,.dom-debug-mode tw-dialog:hover,.dom-debug-mode tw-columns:hover,.dom-debug-mode tw-column:hover,.dom-debug-mode tw-align:hover{outline:1px solid #fc9}.dom-debug-mode tw-story:hover::before,.dom-debug-mode tw-passage:hover::before,.dom-debug-mode tw-sidebar:hover::before,.dom-debug-mode tw-include:hover::before,.dom-debug-mode tw-hook:hover::before,.dom-debug-mode tw-expression:hover::before,.dom-debug-mode tw-link:hover::before,.dom-debug-mode tw-dialog:hover::before,.dom-debug-mode tw-columns:hover::before,.dom-debug-mode tw-column:hover::before,.dom-debug-mode tw-align:hover::before{background-color:#fc9;transition:background-color 1s}.dom-debug-mode tw-passage,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{padding:1em;margin:0}.dom-debug-mode tw-story::before{content:'<tw-story tags="' attr(tags) '">'}.dom-debug-mode tw-passage::before{top:-16px;content:'<tw-passage tags="' attr(tags) '">'}.dom-debug-mode tw-sidebar::before{top:-16px;content:"<tw-sidebar>"}.dom-debug-mode tw-hook::before{content:'<tw-hook name="' attr(name) '">'}.dom-debug-mode tw-expression::before{content:'<tw-expression name="' attr(name) '">'}.dom-debug-mode tw-link::before{content:'<tw-link name="' attr(name) '">'}.dom-debug-mode tw-dialog::before{content:"<tw-dialog>"}.dom-debug-mode tw-columns::before{content:"<tw-columns>"}.dom-debug-mode tw-column::before{content:"<tw-column>"}.dom-debug-mode tw-align::before{content:"<tw-align>"}.dom-debug-mode tw-include::before{content:'<tw-include type="' attr(type) '" name="' attr(name) '">'}tw-open-button[goto]{display:none}.debug-mode tw-open-button[replay],.debug-mode tw-open-button[goto]{display:inline}.debug-mode tw-expression{display:inline-block !important}.debug-mode tw-expression[type=variable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"$" attr(name)}.debug-mode tw-expression[type=tempVariable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"_" attr(name)}.debug-mode tw-expression[return=boolean]{background-color:rgba(179,179,179,.2)}.debug-mode tw-expression[return=array]{background-color:rgba(255,102,102,.2)}.debug-mode tw-expression[return=dataset]{background-color:rgba(255,128,0,.2)}.debug-mode tw-expression[return=number]{background-color:rgba(255,179,102,.2)}.debug-mode tw-expression[return=datamap]{background-color:rgba(255,255,102,.2)}.debug-mode tw-expression[return=changer]{background-color:rgba(179,255,102,.2)}.debug-mode tw-expression[return=lambda]{background-color:rgba(102,255,102,.2)}.debug-mode tw-expression[return=hookname]{background-color:rgba(102,255,204,.2)}.debug-mode tw-expression[return=string]{background-color:rgba(102,255,255,.2)}.debug-mode tw-expression[return=datatype]{background-color:rgba(102,153,255,.2)}.debug-mode tw-expression[return=gradient],.debug-mode tw-expression[return=colour]{background-color:rgba(204,102,255,.2)}.debug-mode tw-expression[return=instant],.debug-mode tw-expression[return=macro]{background-color:rgba(240,117,199,.2)}.debug-mode tw-expression[return=command]{background-color:rgba(153,153,255,.2)}.debug-mode tw-expression.false{background-color:rgba(255,0,0,.2) !important}.debug-mode tw-expression[type=macro]::before{content:"(" attr(name) ":)";padding:0 .5rem;font-size:1rem;vertical-align:middle;line-height:normal;background-color:inherit;border:1px solid rgba(255,255,255,.5)}.debug-mode tw-expression[title]:not([title=""]){cursor:help}.debug-mode tw-hook{background-color:rgba(0,85,255,.1) !important}.debug-mode tw-hook::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"["}.debug-mode tw-hook::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]"}.debug-mode tw-hook[name]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]<" attr(name) "|"}.debug-mode tw-pseudo-hook{background-color:rgba(255,170,0,.1) !important}.debug-mode tw-collapsed::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"{"}.debug-mode tw-collapsed::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"}"}.debug-mode tw-verbatim::before,.debug-mode tw-verbatim::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"`"}.debug-mode tw-align[style*="text-align: center"]{background:linear-gradient(to right, hsla(14, 100%, 87%, 0) 0%, hsla(14, 100%, 87%, 0.25) 50%, hsla(14, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: left"]{background:linear-gradient(to right, hsla(14, 100%, 87%, 0.25) 0%, hsla(14, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: right"]{background:linear-gradient(to right, hsla(14, 100%, 87%, 0) 0%, hsla(14, 100%, 87%, 0.25) 100%)}.debug-mode tw-column{background-color:rgba(189,228,255,.2)}.debug-mode tw-enchantment{animation:enchantment .5s infinite;border:1px solid}.debug-mode tw-link::after,.debug-mode tw-broken-link::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(passage-name)}.debug-mode tw-include{background-color:rgba(204,128,51,.1)}.debug-mode tw-include::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(type) ' "' attr(name) '"'}.debug-dialogs tw-backdrop:not(.eval-replay):not(.harlowe-crash){pointer-events:none;opacity:.1}tw-eval-replay tw-eval-code,tw-eval-replay tw-eval-explanation{max-height:20vh;overflow:auto;margin:10px auto}tw-eval-replay tw-eval-code{display:block;font-family:monospace;padding-bottom:1ex;border-bottom:2px solid gray}tw-eval-replay tw-eval-explanation{display:block;text-align:center}tw-eval-replay tw-eval-explanation>code{white-space:pre-wrap}tw-eval-replay tw-eval-explanation>code.from-block{width:40%;display:inline-block;text-align:left;max-height:4em;overflow-wrap:anywhere;overflow-y:scroll}tw-eval-replay tw-eval-explanation>code.from-block~.to-desc{width:calc(40% - 2em);margin-left:2em;display:inline-block}tw-eval-replay tw-eval-explanation>code.from-block+span::after{content:"..."}tw-eval-replay tw-eval-explanation>code.from-inline{text-align:right}tw-eval-replay tw-eval-explanation>:nth-child(2){white-space:pre}tw-eval-replay tw-eval-explanation>.to-desc{text-align:left}tw-eval-replay tw-eval-explanation>table{width:100%;margin-top:1em}tw-eval-replay tw-eval-explanation>table td{white-space:pre-wrap !important;word-wrap:anywhere}tw-eval-replay tw-eval-reason{text-align:center;font-size:80%;font-style:italic;display:block}tw-eval-replay tw-eval-it{text-align:center;font-size:80%;display:block}tw-eval-replay tw-dialog-links{display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around}@keyframes enchantment{0%,to{border-color:#ffb366}50%{border-color:#6fc}}tw-debugger{position:fixed;box-sizing:border-box;bottom:0;right:0;z-index:999999;min-width:14em;min-height:1em;padding:0em .5em .5em 1em;font-size:1.25em;font-family:sans-serif;color:#262626;background-color:#fff;border-left:solid #262626 2px;border-top:solid #262626 2px;border-top-left-radius:.5em;opacity:1}tw-debugger.fade-panel:not(:hover){opacity:.33}tw-debugger.theme-dark{color:#d9d9d9;background-color:#000}tw-debugger.theme-dark{border-color:#d9d9d9 rgba(0,0,0,0) rgba(0,0,0,0) #d9d9d9}tw-debugger select{margin-right:1em;width:12em}tw-debugger button,tw-debugger tw-link{border-radius:3px;border:solid #999 1px;margin:auto 4px;color:#262626;background-color:#fff;cursor:pointer}tw-debugger button.enabled,tw-debugger tw-link.enabled{color:#000;background-color:#d9d9d9;box-shadow:inset #999 3px 5px .5em}tw-debugger.theme-dark button,tw-debugger.theme-dark tw-link{color:#d9d9d9;background-color:#000;border-color:#666}tw-debugger.theme-dark button.enabled,tw-debugger.theme-dark tw-link.enabled{color:#e6e6e6;background-color:#424242;box-shadow:inset #666 3px 5px .5em}tw-debugger button{font-size:1em;overflow-x:hidden;text-overflow:ellipsis;white-space:pre}tw-debugger tw-link{font-size:1.25em;border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}tw-debugger tw-link:hover{border-color:#262626;color:#262626}tw-debugger.theme-dark tw-link:hover{border-color:#d9d9d9;color:#d9d9d9}tw-debugger tw-dialog{background-color:#fff;color:#000;font-size:1.25em}tw-debugger.theme-dark tw-dialog{background-color:#000;color:#e6e6e6}tw-debugger .panel{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;position:absolute;bottom:100%;left:-2px;right:0;padding:1em;overflow-y:scroll;overflow-x:hidden;border:inherit;box-sizing:content-box;background-color:#fff;border-bottom:solid #999 2px;border-top-left-radius:.5em;border-bottom-left-radius:.5em;font-size:.8em}tw-debugger .panel:empty,tw-debugger .panel[hidden]{display:none}tw-debugger.theme-dark .panel{background-color:#000;border-bottom-color:#666}tw-debugger .panel-source .panel-row-buttons{width:2rem}tw-debugger .panel-source .source-tags{width:20%;font-style:italic}tw-debugger .panel-row-source td{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere;max-height:8rem;padding:1rem}tw-debugger .panel-rows{width:100%;overflow-x:scroll}tw-debugger .panel-rows>*{display:table-row}tw-debugger .panel-rows>div:nth-of-type(2n){background-color:#e6e6e6}tw-debugger .panel-tools .panel-rows>*,tw-debugger .panel-options .panel-rows>*{margin-top:.4rem;display:block}tw-debugger.theme-dark .panel-rows>div:nth-of-type(2n){background-color:#212121}tw-debugger .panel-row-buttons{text-align:right}tw-debugger .panel-variables .panel-rows:empty::before{content:"~ No variables ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-enchantments .panel-rows:empty::before{content:"~ No enchantments ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty::before{content:"~ No errors... for now. ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty+.panel-errors-bottom{display:none}tw-debugger.theme-dark .panel-variables .panel-rows:empty::before,tw-debugger.theme-dark .panel-enchantments .panel-rows:empty::before,tw-debugger.theme-dark .panel-errors .panel-rows:empty::before{color:#a8a8a8}tw-debugger .panel-rows:empty+.panel-variables-bottom{display:none}tw-debugger th[data-col]{text-decoration:underline;cursor:pointer}tw-debugger th[data-col][data-order=asc]::after{content:"↓"}tw-debugger th[data-col][data-order=desc]::after{content:"↑"}tw-debugger .panel-storylets:not(.panel-exclusive) .storylet-exclusive,tw-debugger .panel-storylets:not(.panel-urgent) .storylet-urgent{display:none}tw-debugger .storylet-exclusive,tw-debugger .storylet-urgent,tw-debugger .storylet-open{text-align:center}tw-debugger .panel-variables-bottom{padding-top:5px}tw-debugger .enchantment-row{min-height:1.5em}tw-debugger .variable-path{opacity:.4}tw-debugger .temporary-variable-scope,tw-debugger .enchantment-local{font-family:sans-serif;font-weight:normal;opacity:.8;font-size:.75em}tw-debugger .temporary-variable-scope:not(:empty)::before,tw-debugger .enchantment-local:not(:empty)::before{content:" in "}tw-debugger .variable-name,tw-debugger .enchantment-name{font-family:monospace;font-weight:bold}tw-debugger .variable-type{color:#575757;font-weight:normal;text-overflow:ellipsis;overflow:hidden;max-width:10em}tw-debugger.theme-dark .variable-type{color:#a8a8a8}tw-debugger .error-row{display:table-row;background-color:rgba(230,101,204,.3)}tw-debugger .error-row:nth-of-type(2n){background-color:rgba(237,145,219,.3)}tw-debugger .error-row>*{display:table-cell;padding:.25em .5em}tw-debugger .error-row .error-message[title]:not([title=""]){cursor:help}tw-debugger .error-row .error-passage{color:#575757}tw-debugger.theme-dark .error-row .error-passage{color:#a8a8a8}tw-debugger .storylet-row{background-color:rgba(193,240,225,.3)}tw-debugger .storylet-row:nth-child(2n){background-color:rgba(152,231,204,.3)}tw-debugger .storylet-row.storylet-closed{font-style:italic;background-color:#fff}tw-debugger .storylet-row.storylet-closed:nth-child(2n){background-color:#e6e6e6}tw-debugger .storylet-row.storylet-closed>:not(.storylet-lambda){opacity:.6}.storylet-error tw-debugger .storylet-row{background-color:rgba(230,101,204,.3)}.storylet-error tw-debugger .storylet-row:nth-child(2n){background-color:rgba(237,145,219,.3)}tw-debugger .storylet-row .storylet-name,tw-debugger .storylet-row .storylet-value{display:inline-block;width:50%}tw-debugger .storylet-row .storylet-lambda{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere}tw-debugger.theme-dark .storylet-row.storylet-closed{background-color:#000}tw-debugger.theme-dark .storylet-row.storylet-closed:nth-child(2n){background-color:#212121}tw-debugger .tabs{padding-bottom:.5em}tw-debugger .tab{border-radius:0px 0px .5em .5em;border-top:none;top:-2px}tw-debugger .resizer-h{position:absolute;height:14em;border-left:2px solid #999;border-right:2px solid #999;top:10px;left:4px;width:8px;cursor:ew-resize}tw-debugger.theme-dark .resizer-h{border-color:rgba(0,0,0,0) #666}tw-debugger .resizer-v{position:absolute;height:8px;border-top:2px solid #999;border-bottom:2px solid #999;margin-bottom:4px;top:4px;left:10px;width:95%;cursor:ns-resize;box-sizing:border-box}tw-debugger.theme-dark .resizer-v{border-color:#666 rgba(0,0,0,0)}tw-debugger mark{color:inherit;background-color:rgba(101,230,230,.3) !important}tw-dialog{z-index:999997;border:#fff solid 2px;padding:2em;color:#fff;background-color:#000;display:block}@media(min-width: 576px){tw-dialog{max-width:50vw}}tw-dialog input[type=text]{font-size:inherit;width:100%;border:solid #fff !important}tw-dialog-links{text-align:right;display:-ms-flexbox;display:flex;-ms-flex-pack:end;justify-content:flex-end}tw-backdrop{z-index:999996;position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.8);display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}tw-backdrop~tw-backdrop{display:none}tw-link,.enchantment-link{cursor:pointer;color:#4169e1;font-weight:bold;text-decoration:none;transition:color .2s ease-in-out}tw-passage [style^=color] tw-link:not(:hover),tw-passage [style*=" color"] tw-link:not(:hover),tw-passage [style^=color][hover=true] tw-link:hover,tw-passage [style*=" color"][hover=true] tw-link:hover,tw-passage [style^=color] .enchantment-link:not(:hover),tw-passage [style*=" color"] .enchantment-link:not(:hover),tw-passage [style^=color][hover=true] .enchantment-link:hover,tw-passage [style*=" color"][hover=true] .enchantment-link:hover{color:inherit}tw-link:hover,.enchantment-link:hover{color:#00bfff}tw-link:active,.enchantment-link:active{color:#dd4b39}.visited{color:#6941e1}tw-passage [style^=color] .visited:not(:hover),tw-passage [style*=" color"] .visited:not(:hover),tw-passage [style^=color][hover=true] .visited:hover,tw-passage [style*=" color"][hover=true] .visited:hover{color:inherit}.visited:hover{color:#e3e}tw-broken-link{color:#933;border-bottom:2px solid #933;cursor:not-allowed}tw-passage [style^=color] tw-broken-link:not(:hover),tw-passage [style*=" color"] tw-broken-link:not(:hover),tw-passage [style^=color][hover=true] tw-broken-link:hover,tw-passage [style*=" color"][hover=true] tw-broken-link:hover{color:inherit}tw-link.enchantment-mouseover,.link.enchantment-mouseover,tw-expression.enchantment-mouseover>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border-bottom:2px dashed #999}tw-link.enchantment-mouseover:hover,tw-link.enchantment-mouseover:active,.link.enchantment-mouseover:hover,.link.enchantment-mouseover:active,tw-expression.enchantment-mouseover>tw-link:hover,tw-expression.enchantment-mouseover>tw-link:active{color:inherit}tw-link.enchantment-mouseover.enchantment-button,.link.enchantment-mouseover.enchantment-button,tw-expression.enchantment-mouseover>tw-link.enchantment-button{border-style:dashed}tw-link.enchantment-mouseout,.link.enchantment-mouseout,tw-expression.enchantment-mouseout>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border:rgba(64,149,191,.6) 1px solid;border-radius:.2em}tw-link.enchantment-mouseout:hover,tw-link.enchantment-mouseout:active,.link.enchantment-mouseout:hover,.link.enchantment-mouseout:active,tw-expression.enchantment-mouseout>tw-link:hover,tw-expression.enchantment-mouseout>tw-link:active{color:inherit}tw-link.enchantment-mouseout:hover,.link.enchantment-mouseout:hover,tw-expression.enchantment-mouseout>tw-link:hover{background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 1px solid}tw-link.enchantment-dblclick,.link.enchantment-dblclick,tw-expression.enchantment-dblclick>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;cursor:pointer;border:2px solid #999;border-radius:0}tw-link.enchantment-dblclick:hover,tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:hover,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:hover,tw-expression.enchantment-dblclick>tw-link:active{color:inherit}tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:active{background-color:#999}tw-link.enchantment-button,.link.enchantment-button,.enchantment-button:not(.link) tw-link,.enchantment-button:not(.link) .link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}.enchantment-button{display:block}.enchantment-clickblock{cursor:pointer;width:100%;height:100%;display:block}.enchantment-clickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;color:rgba(65,105,225,.5);transition:color .2s ease-in-out}.enchantment-clickblock>:not(tw-enchantment):hover::after{color:rgba(0,191,255,.5)}.enchantment-clickblock>:not(tw-enchantment):active::after{color:rgba(222,78,59,.5)}.enchantment-clickblock>:not(tw-enchantment)::after{box-shadow:inset 0 0 0 .5vmax}.enchantment-clickblock>tw-passage::after,.enchantment-clickblock>tw-sidebar::after{box-shadow:0 0 0 .5vmax}.enchantment-mouseoverblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:2px dashed #999}.enchantment-mouseoutblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:rgba(64,149,191,.6) 2px solid}.enchantment-mouseoutblock:hover>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 2px solid;border-radius:.2em}.enchantment-dblclickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;cursor:pointer;border:2px solid #999}tw-dialog-links{padding-top:1.5em}tw-dialog-links tw-link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block;display:inline-block}html{margin:0;height:100%;overflow-x:hidden}*,:before,:after{position:relative;box-sizing:inherit}body{margin:0;height:100%}tw-storydata{display:none}tw-story{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;font:100% Georgia,serif;box-sizing:border-box;width:100%;min-height:100%;font-size:1.5em;line-height:1.5em;padding:5% 5%;overflow:hidden;background-color:#000;color:#fff}tw-story [style*=content-box] *{box-sizing:border-box}@media(min-width: 576px){tw-story{padding:5% 20%}}tw-story tw-consecutive-br{display:block;height:1.6ex;visibility:hidden}tw-story select{background-color:rgba(0,0,0,0);font:inherit;border-style:solid;padding:2px}tw-story select:not([disabled]){color:inherit}tw-story textarea{resize:none;background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none;padding:2px}tw-story input[type=text]{background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none}tw-story input[type=checkbox]{transform:scale(1.5);margin:0 .5em .5em .5em;vertical-align:middle}tw-story tw-noscript{animation:appear .8s}tw-passage{display:block}tw-sidebar{text-align:center;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}@media(min-width: 576px){tw-sidebar{left:-5em;width:3em;position:absolute;-ms-flex-direction:column;flex-direction:column}tw-enchantment[style*=width]>tw-sidebar{width:inherit}}tw-icon{display:inline-block;margin:.5em 0;font-size:66px;font-family:"Verdana",sans-serif}tw-icon[alt]{opacity:.2;cursor:pointer}tw-icon[alt]:hover{opacity:.4}tw-icon[data-label]::after{font-weight:bold;content:attr(data-label);font-size:20px;bottom:-20px;left:-50%;white-space:nowrap}tw-meter{display:block}tw-hook:empty,tw-expression:empty{display:none}tw-error{display:inline-block;border-radius:.2em;padding:.2em;font-size:1rem;cursor:help;white-space:pre-wrap}tw-error.error{background-color:rgba(223,58,190,.6);color:#fff}tw-error.warning{background-color:rgba(223,140,58,.6);color:#fff;display:none}.debug-mode tw-error.warning{display:inline}tw-error-explanation{display:block;font-size:.8rem;line-height:1rem}tw-open-button,tw-folddown{cursor:pointer;line-height:0em;border-radius:4px;border:1px solid rgba(255,255,255,.5);font-size:.8rem;margin:0 .2rem;padding:3px;white-space:pre}tw-folddown::after{content:"▶"}tw-folddown.open::after{content:"▼"}tw-open-button[replay]{display:none}tw-error tw-open-button,tw-eval-replay tw-open-button{display:inline !important}tw-open-button::after{content:attr(label)}tw-notifier{border-radius:.2em;padding:.2em;font-size:1rem;background-color:rgba(223,182,58,.4);display:none}.debug-mode tw-notifier{display:inline}tw-notifier::before{content:attr(message)}tw-colour{border:1px solid #000;display:inline-block;width:1em;height:1em}tw-enchantment:empty{display:none}h1{font-size:3em}h2{font-size:2.25em}h3{font-size:1.75em}h1,h2,h3,h4,h5,h6{line-height:1em;margin:.3em 0 .6em 0}pre{font-size:1rem;line-height:initial}small{font-size:70%}big{font-size:120%}mark{color:rgba(0,0,0,.6);background-color:#ff9}ins{color:rgba(0,0,0,.6);background-color:rgba(255,242,204,.5);border-radius:.5em;box-shadow:0em 0em .2em #ffe699;text-decoration:none}center{text-align:center;margin:0 auto;width:60%}blink{text-decoration:none;animation:fade-in-out 1s steps(1, end) infinite alternate}tw-align{display:block}tw-columns{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:justify;justify-content:space-between}.transition-in{animation:appear 0ms step-start}.transition-out{animation:appear 0ms step-end}[data-t8n^=dissolve].transition-in,[data-t8n=fade].transition-in{animation:appear .8s}[data-t8n^=dissolve].transition-out,[data-t8n=fade].transition-out{animation:appear .8s reverse}[data-t8n^=shudder].transition-in{display:inline-block !important;animation:shudder-in .8s}[data-t8n^=shudder].transition-out{display:inline-block !important;animation:shudder-in .8s reverse}[data-t8n^=rumble].transition-in{display:inline-block !important;animation:rumble-in .8s}[data-t8n^=rumble].transition-out{display:inline-block !important;animation:rumble-in .8s reverse}[data-t8n^=pulse].transition-in{animation:pulse .8s;display:inline-block !important}[data-t8n^=pulse].transition-out{animation:pulse .8s reverse;display:inline-block !important}[data-t8n^=zoom].transition-in{animation:zoom-in .8s;display:inline-block !important}[data-t8n^=zoom].transition-out{animation:zoom-in .8s reverse;display:inline-block !important}[data-t8n^=blur].transition-in{animation:blur .8s;display:inline-block !important}[data-t8n^=blur].transition-out{animation:blur .8s reverse;display:inline-block !important}[data-t8n^=slideleft].transition-in{animation:slide-left .8s;display:inline-block !important}[data-t8n^=slideleft].transition-out{animation:slide-right .8s reverse;display:inline-block !important}[data-t8n^=slideright].transition-in{animation:slide-right .8s;display:inline-block !important}[data-t8n^=slideright].transition-out{animation:slide-left .8s reverse;display:inline-block !important}[data-t8n^=slideup].transition-in{animation:slide-up .8s;display:inline-block !important}[data-t8n^=slideup].transition-out{animation:slide-down .8s reverse;display:inline-block !important}[data-t8n^=slidedown].transition-in{animation:slide-down .8s;display:inline-block !important}[data-t8n^=slidedown].transition-out{animation:slide-up .8s reverse;display:inline-block !important}[data-t8n^=fadeleft].transition-in{animation:fade-left .8s;display:inline-block !important}[data-t8n^=fadeleft].transition-out{animation:fade-right .8s reverse;display:inline-block !important}[data-t8n^=faderight].transition-in{animation:fade-right .8s;display:inline-block !important}[data-t8n^=faderight].transition-out{animation:fade-left .8s reverse;display:inline-block !important}[data-t8n^=fadeup].transition-in{animation:fade-up .8s;display:inline-block !important}[data-t8n^=fadeup].transition-out{animation:fade-down .8s reverse;display:inline-block !important}[data-t8n^=fadedown].transition-in{animation:fade-down .8s;display:inline-block !important}[data-t8n^=fadedown].transition-out{animation:fade-up .8s reverse;display:inline-block !important}[data-t8n^=flicker].transition-in{animation:flicker .8s}[data-t8n^=flicker].transition-out{animation:flicker .8s reverse}
 </style>
 </head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HBSKP5X1V1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-HBSKP5X1V1');
-  // End of google-specific code ^
-  document.addEventListener('click', function (event) {
-    const twLink = event.target.closest('tw-link');
-    if (!twLink) return
-    const linkText = twLink.textContent.trim();
-    console.log("tw-link clicked:", linkText)
-    gtag('event', 'Navigation', {
-      event_category: 'LinkTextClicked',
-      event_label: linkText
-    });
-  }, true);
-</script> 
 <body>
-<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play DateWijzer.</tw-noscript></noscript></tw-story>
-<tw-storydata name="DateWijzer" startnode="4" creator="Twine" creator-version="2.11.1" format="Harlowe" format-version="3.3.9" ifid="3C186A62-F381-4A26-864B-91E7BE595708" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">.base64image {
-  width: 100%;
-   max-width: 100vw;
-  height: auto;
-  
-  /* Base64 image truncated for example */
-  /* See Twee file for full version. */
-  background-image: url('data:image/png;base64...');
+<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play DateWijzerV2.</tw-noscript></noscript></tw-story>
+<tw-storydata name="DateWijzerV2" startnode="9" creator="Twine" creator-version="2.12.1" format="Harlowe" format-version="3.3.9" ifid="CDDF89FC-E9A5-4C51-ABBA-4AB564441CC6" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/* ============ BASIS ============ */
+:root {
+  --maarten: url("maarten.webp");
 }
 
-tw-passage img { max-width: 100%; }
+html, body {
+  margin: 0;
+  background: #000 !important;
+  -webkit-text-size-adjust: 100%;
+}
 
-
-
-
-tw-link {
+tw-story {
+  box-sizing: border-box;
   display: block;
-  padding: 12px 20px;
-  margin: 6px 0;
-  background-color: #3399ff;   /* helder maar rustiger blauw voor zwarte achtergrond */
-  color: #ffffff;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: 600;
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3); /* iets sterker contrast op zwart */
+  max-width: 560px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: env(safe-area-inset-top) 16px calc(env(safe-area-inset-bottom) + 32px) !important;
+  background: #000 !important;
+  color: #fff;
+  font: 400 clamp(16px, 4.2vw, 19px)/1.6 Georgia, "Times New Roman", serif;
+  overflow-wrap: anywhere;
 }
 
-tw-link:hover {
-  background-color: #1a73e8;  /* donkerder blauw, subtiel maar duidelijk */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  letter-spacing: 0.5px;
+tw-sidebar { display: none; }
+tw-story, tw-story * { -webkit-tap-highlight-color: transparent; }
+
+/* ============ STATUSBALK ============ */
+.statusbar {
+  position: sticky; top: 0; z-index: 10;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin: 0 -16px 16px; padding: 12px 16px;
+  background: #000;
+  border-bottom: 1px solid #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start4" tags="" position="525,400" size="100,100">Er zijn maar 3 vragen
+.statusbar + br { display: none; }
 
-[[Begin|vraag1]]
+/* Profielrij */
+.profile {
+  grid-column: 1 / -1;
+  display: flex; align-items: center; gap: 12px;
+}
+.avatar {
+  flex: none; width: 44px; height: 44px; border-radius: 50%;
+  background-color: #333;
+  background-image: var(--maarten);
+  background-size: cover; background-position: center;
+  border: 2px solid #fff;
+  filter: grayscale(1);
+}
+.who { line-height: 1.15; }
+.who-kicker { font-size: .65em; letter-spacing: .12em; text-transform: uppercase; color: #aaa; }
+.who-name   { font-size: 1.2em; font-weight: 700; }
+.who-sub    { font-size: .72em; color: #aaa; margin-top: 2px; }
+
+/* Statuskaarten */
+.stat {
+  padding: 8px 10px 10px;
+  border: 1px solid #fff;
+}
+.stat-top  { display: flex; align-items: center; gap: 6px; }
+.stat-icon { font-size: 1.1em; line-height: 1; filter: grayscale(1); }
+.stat-name { font-size: .68em; letter-spacing: .1em; text-transform: uppercase; color: #aaa; }
+.stat-num  { margin-left: auto; font-weight: 700; font-size: .9em; font-variant-numeric: tabular-nums; }
+.stat-label {
+  margin-top: 4px;
+  font-weight: 700; font-size: .88em; line-height: 1.2;
+  min-height: 2.4em;
+}
+
+/* Balkje */
+.meter {
+  height: 8px; margin-top: 8px;
+  border: 1px solid #fff;
+}
+.meter > i {
+  display: block; height: 100%;
+  width: calc(var(--v) * 1%);
+  background: #fff;
+}
+
+/* ============ TEKST ============ */
+.scene {
+  margin: 0 0 14px;
+  color: #aaa; font-style: italic; font-size: .93em;
+}
+.dokter {
+  position: relative;
+  margin: 16px 0 20px; padding: 0 0 0 14px;
+  border-left: 3px solid #fff;
+}
+.dokter::before {
+  content: "Maarten";
+  display: block; margin-bottom: 2px;
+  font: 700 .65em system-ui, sans-serif;
+  letter-spacing: .12em; text-transform: uppercase; color: #aaa;
+}
+.dokter.socrates::before { content: "Socrates"; }
+
+/* ============ SCOREVERANDERING ============ */
+.delta { margin: 14px 0 8px; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.delta br { display: none; }
+
+.chip {
+  display: inline-block;
+  margin: 0 8px 8px 0; padding: 4px 10px;
+  border: 1px solid transparent;
+  font-size: .85em; font-weight: 700;
+  letter-spacing: .04em; text-transform: uppercase;
+  color: #000;
+}
+.chip.plus { background: #4CFF00; border-color: #4CFF00; }   /* stijging: groen */
+.chip.min  { background: #ff3b30; border-color: #ff3b30; }   /* daling: rood */
+.chip.plus::before { content: "▲ "; }
+.chip.min::before  { content: "▼ "; }
+
+/* ============ KEUZES ============ */
+tw-link {
+  display: block; box-sizing: border-box;
+  min-height: 44px; margin: 4px 0; padding: 10px 14px;  /* was 48px / 10px 0 / 12px 14px */
+  border: 1px solid #fff;
+  background: transparent;
+  color: #fff !important;
+  text-decoration: none !important;
+  line-height: 1.3;
+  cursor: pointer;
+}
+tw-link + br { display: none; }
+tw-link:active { background: #fff; color: #000 !important; }
+@media (hover: hover) {
+  tw-link:hover { background: #fff; color: #000 !important; }
+}
+tw-link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+/* ============ SLIDER & INVOER ============ */
+.tijd { margin: 18px 0; text-align: center; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.tijd-nu { font-size: 2.4em; font-weight: 700; font-variant-numeric: tabular-nums; margin-bottom: 6px; }
+.tijdslider,
+.jaarslider { width: 100%; height: 36px; accent-color: #fff; background: transparent; }
+.tijdslider,
+.jaarslider { touch-action: pan-y; }
+tw-story textarea,
+tw-story input[type="text"] {
+  box-sizing: border-box; width: 100%;
+  margin: 8px 0 14px; padding: 12px 14px;
+  background: #000; color: #fff;
+  border: 1px solid #fff; border-radius: 0;
+  font: inherit; font-size: 16px;    /* 16px voorkomt inzoomen op iPhone */
+  resize: none;
+}
+tw-story textarea:focus { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* ============ OORANJE UITGANG ============ */
+tw-hook[name="uitgang"] { display: block; margin-top: 22px; }
+tw-hook[name="uitgang"] tw-link {
+  background: #ff9500; border-color: #ff9500;
+  color: #000 !important; font-weight: 700;
+}
+tw-hook[name="uitgang"] tw-link:active { background: #cc7700; border-color: #cc7700; color: #000 !important; }
+@media (hover: hover) {
+  tw-hook[name="uitgang"] tw-link:hover { background: #ffb340; border-color: #ffb340; color: #000 !important; }
+}
+
+
+  
+  
+/* Naar het toilet vragen — lichtblauw */
+tw-hook[name="toilet"] { display: block; margin-top: 22px; }
+tw-hook[name="toilet"] tw-link {
+  background: #87cefa;
+  border-color: #87cefa;
+  color: #000 !important;
+  font-weight: 700;
+}
+tw-hook[name="toilet"] tw-link:active {
+  background: #5ba9d6;
+  border-color: #5ba9d6;
+  color: #000 !important;
+}
+@media (hover: hover) {
+  tw-hook[name="toilet"] tw-link:hover {
+    background: #b0e2ff;
+    border-color: #b0e2ff;
+    color: #000 !important;
+  }
+}
+
+/* Een boer laten — bruin */
+tw-hook[name="boer"] { display: block; margin-top: 22px; }
+tw-hook[name="boer"] tw-link {
+  background: #a56a43;
+  border-color: #a56a43;
+  color: #fff !important;
+  font-weight: 700;
+}
+tw-hook[name="boer"] tw-link:active {
+  background: #754626;
+  border-color: #754626;
+  color: #fff !important;
+}
+@media (hover: hover) {
+  tw-hook[name="boer"] tw-link:hover {
+    background: #c18b63;
+    border-color: #c18b63;
+    color: #fff !important;
+  }
+}
+
+/* Overgeven — groen */
+tw-hook[name="overgeven"] { display: block; margin-top: 22px; }
+tw-hook[name="overgeven"] tw-link {
+  background: #43a047;
+  border-color: #43a047;
+  color: #fff !important;
+  font-weight: 700;
+}
+tw-hook[name="overgeven"] tw-link:active {
+  background: #2e7031;
+  border-color: #2e7031;
+  color: #fff !important;
+}
+@media (hover: hover) {
+  tw-hook[name="overgeven"] tw-link:hover {
+    background: #66bb6a;
+    border-color: #66bb6a;
+    color: #fff !important;
+  }
+}
+
+/* In je broek plassen — paars */
+tw-hook[name="broekplassen"] { display: block; margin-top: 22px; }
+tw-hook[name="broekplassen"] tw-link {
+  background: #9c27b0;
+  border-color: #9c27b0;
+  color: #fff !important;
+  font-weight: 700;
+}
+tw-hook[name="broekplassen"] tw-link:active {
+  background: #6a1b79;
+  border-color: #6a1b79;
+  color: #fff !important;
+}
+@media (hover: hover) {
+  tw-hook[name="broekplassen"] tw-link:hover {
+    background: #ba68c8;
+    border-color: #ba68c8;
+    color: #fff !important;
+  }
+}  
+  
 
 
 
 
 
+/* ============ REACTIE IN DE HEADER ============ */
+.reactie {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-style: italic;
+  font-size: .9em;
+  line-height: 1.35;
+}
+
+/* ============ KLEINE SCHERMEN ============ */
+@media (max-width: 380px) {
+  .statusbar { gap: 8px; }
+  .stat-name { letter-spacing: .05em; }
+  
+  
+  
+.stat-top { flex-wrap: wrap; row-gap: 4px; }
+
+.stat .chip {
+  margin: 0 0 0 6px;
+  padding: 1px 6px;
+  font-size: .7em;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+  
+  
+
+  
+  
+  </style><script role="script" id="twine-user-script" type="text/twine-javascript">document.addEventListener('input', function (e) {
+  var el = e.target;
+  if (!el.classList) return;
+
+  var out = el.parentNode.querySelector('.tijd-nu');
+  if (!out) return;
+
+  // Tijdslider: minuten -> hh:mm
+  if (el.classList.contains('tijdslider')) {
+    var m = parseInt(el.value, 10);
+    var h = Math.floor(m / 60), min = m % 60;
+    out.textContent = (h < 10 ? '0' : '') + h + ':' + (min < 10 ? '0' : '') + min;
+  }
+
+  // Jaarslider: toon het jaar zelf
+  else if (el.classList.contains('jaarslider')) {
+    out.textContent = el.value;
+  }
+});</script><tw-tag name="startup" color="yellow"></tw-tag><tw-tag name="header" color="blue"></tw-tag><tw-passagedata pid="1" name="Intro_1" tags="" position="475,650" size="100,100">(set: $next to &quot;Intro_2&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Hallo  (print: $naam)?&quot;&lt;/div&gt;
+
+[(link: &quot;Hallo&quot;)[(go-to: ($dest:))]]
+</tw-passagedata><tw-passagedata pid="2" name="Q1" tags="" position="600,1300" size="100,100">(set: $next to &quot;Q2&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Vraag 1: Wanneer heb je voor het eerst gehuild?&quot;&lt;/div&gt;
+
+(link: &quot;Toen ik werd geboren. Sindsdien is het alleen maar ingewikkelder geworden&quot;)[($apply: 5, 1, &quot;eerlijk&quot;, &quot;Mooi eerlijk antwoord&quot;)(go-to: ($dest:))]
+(link: &quot;Eerlijk? Ik moest even checken of dit geen strikvraag was.&quot;)[($apply: 5, 5, &quot;grappig&quot;, &quot;Heel scherp &quot; +  $naam)(go-to: ($dest:))]
+(link: &quot;Ik huil niet&quot;)[($apply: -10, -10, &quot;eerlijk&quot;, &quot;Een hart van steen.&quot;)(go-to: ($dest:))]
+(if: $aantalDrankjes &gt; 2)[|toilet&gt;[(link: &quot;Sorry, maar mag ik naar het toilet?&quot;)[($apply: -1, -1, &quot;eerlijk&quot;)(go-to: &quot;Toilet&quot;)]]]
+
+</tw-passagedata><tw-passagedata pid="3" name="Detour_Pauze" tags="" position="600,1100" size="100,100">(set: $provoked to 100)
+Maarten legt de pen neer en kijkt je even aan.
+
+&lt;div class=&quot;dokter&quot;&gt;Ik pak even de benenwagen Als ik terugkom, hoop ik dat we weer verder kunnen.&lt;/div&gt;
+
+(link: &quot;Sorry, ik was onbeleefd.&quot;)[($apply: 10, 5, &quot;eerlijk&quot;, &quot;Geen probleem ik snap het. We gaan door&quot;)(go-to: ($dest:))]
+|uitgang&gt;[(link: &quot;Besluit om de ruimte te verlaten.&quot;)[(go-to: &quot;Verlaten&quot;))]]
+</tw-passagedata><tw-passagedata pid="4" name="Init" tags="startup" position="1100,300" size="100,100">{
+(set: $naam to &quot;&quot;)
+(set: $aantalDrankjes to 0)
+(set: $aantalAlcohol to 0)
+(set: $drankje to &quot;&quot;)
+(set: $tekst to &quot;&quot;)
+(set: $patience to 50)
+(set: $love to 50)
+(set: $provoked to 0)
+(set: $last to &quot;&quot;)
+(set: $next to &quot;Q1&quot;)
+(set: $tags to (dm: &quot;eerlijk&quot;, 0, &quot;ontwijkend&quot;, 0, &quot;needy&quot;, 0, &quot;grappig&quot;, 0, &quot;rage&quot;, 0))
+(set: $toonHeader to false)
+(set: $patienceLabels to (a: &quot;Beter dan de paus&quot;,&quot;Zen&quot;, &quot;Geduldig&quot;, &quot;Geïrriteerd&quot;, &quot;Ik ben moe&quot;, &quot;Ik haat je&quot;))
+(set: $loveLabels to (a: &quot;Droompartner&quot;, &quot;Verliefd&quot;, &quot;Gecharmeerd&quot;, &quot;Nieuwsgierig&quot;, &quot;Nog geen klik&quot;))
+(set: $ondertitel to &quot;Onbekend&quot;)
+(set: $weg to 0)
+(set: $terug to &quot;Q5&quot;)
+(set: $socrates to 0)
 
 
-</tw-passagedata><tw-passagedata pid="2" name="vraag1" tags="" position="400,575" size="100,100">(set: $progess to 33.34)
-(print: &#39;&lt;progress value=&quot;&#39; + (text: $progess) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;)
-&lt;script&gt;gtag(&#39;event&#39;, &#39;passage_view&#39;, {event_category: &#39;story&#39;,event_label: &quot;Quiz Start&quot;,non_interaction: true});&lt;/script&gt;
-&lt;script&gt;console.log(&#39;Kom op Google&#39;);&lt;/script&gt;
-&#39;&#39;Vraag 1 van de 3&#39;&#39;
-Kun je even doen alsof je verliefd op me bent om deze test te laten werken?
 
-(link: &quot;Ja…&quot;)[
-(goto: &quot;Vraag2&quot;)
-]
-(link: &quot;Weet ik niet. Ik wil niet nog op één ongemakkelijke date.&quot;)[
-  (goto: &quot;Vraag2&quot;)
-]
-(link: &quot;Nee hier krijg ik dus de ick van&quot;)[
-(set: $roelvink to $roelvink + 1)
-  (goto: &quot;Vraag2&quot;)
-]
-</tw-passagedata><tw-passagedata pid="3" name="Vraag2" tags="" position="325,725" size="100,100">(set: $progess to 67.6)
-(print: &#39;&lt;progress value=&quot;&#39; + (text: $progess) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;)
-&#39;&#39;Vraag 2 van de 3&#39;&#39;
-Wanneer heb je voor het eerst gehuild?
-(link: &quot;Toen ik werd geboren. Sindsdien is het alleen maar ingewikkelder geworden&quot;)[
-  (goto: &quot;Vraag3&quot;)
-]
-(link: &quot;Eerlijk? Ik moest even checken of dit geen strikvraag was.&quot;)[
-  (goto: &quot;Vraag3&quot;)
-]
-(link: &quot;Ik huil niet&quot;)[
-  (set: $bot to $bot + 10)
-  (goto: &quot;Vraag3&quot;)
+(set: $patienceTier to (macro: num-type _v, [
+  (if: _v &gt;= 80)[(output-data: 1)]
+  (else-if: _v &gt;= 60)[(output-data: 2)]
+  (else-if: _v &gt;= 40)[(output-data: 3)]
+  (else-if: _v &gt;= 20)[(output-data: 4)]
+  (else-if: _v &gt;= 10)[(output-data: 5)]
+  (else:)[(output-data: 6)]
+]))
 
-]
+(set: $loveTier to (macro: num-type _v, [
+  (if: _v &gt;= 80)[(output-data: 1)]
+  (else-if: _v &gt;= 60)[(output-data: 2)]
+  (else-if: _v &gt;= 40)[(output-data: 3)]
+  (else-if: _v &gt;= 20)[(output-data: 4)]
+  (else:)[(output-data: 5)]
+]))
 
-</tw-passagedata><tw-passagedata pid="4" name="Start" tags="" position="650,0" size="100,100">(set: $rust to 0)
-(set: $fifa to 0)
-(set: $aap to 0)
-(set: $roelvink to 0)
-(set: $bot to 0)
+(set: $apply to (macro: num-type _dp, num-type _dl, str-type _tag, ...str-type _tekst, [
+  (unless: $tags contains _tag)[(error: &quot;Onbekende tag: &quot; + _tag)]
+  (set: _oldP to $patience)
+  (set: _oldL to $love)
+  (set: $patience to (max: 0, (min: 100, $patience + _dp)))
+  (set: $love to (max: 0, (min: 100, $love + _dl)))
+  (set: $dP to $patience - _oldP)
+  (set: $dL to $love - _oldL)
+  (set: $last to _tag)
+  (set: $toon to true)
+  (set: $tekst to &quot;&quot;)
+  (if: _tekst&#39;s length &gt; 0)[(set: $tekst to _tekst&#39;s 1st)]
+  (set: $tags&#39;s (_tag) to it + 1)
+  (if: _tag is &quot;rage&quot;)[(set: $provoked to it + 1)]
+  (output-data: &quot;&quot;)
+]))
+(set: $dP to 0)
+(set: $dL to 0)
+
+(set: $fmt to (macro: num-type _n, [
+  (if: _n &gt; 0)[(output-data: &quot;+&quot; + (str: _n))]
+  (else:)[(output-data: (str: _n))]
+]))
 
 
-(set: $diepte to 0)
-(set: $progess to 0)
+(set: $toon to false)
 
+(set: $dest to (macro: [
+  (if: $patience &lt;= 15)[(output-data: &quot;GeenGeduld&quot;)]
+  (else-if: $last is &quot;rage&quot; and $provoked is 2)[(set: $toonHeader to false)(output-data: &quot;Detour_Pauze&quot;)]
+  (else:)[(output-data: $next)]
+]))
+}
+</tw-passagedata><tw-passagedata pid="5" name="Statusbalk" tags="header" position="1300,300" size="100,100">(if: $toonHeader)[(set: _pt to ($patienceTier: $patience))(set: _lt to ($loveTier: $love))(set: _pI to (a: &quot;🧘&quot;, &quot;🙂&quot;, &quot;🙂&quot;, &quot;😒&quot;, &quot;😤&quot;, &quot;💀&quot;))(set: _lI to (a: &quot;💘&quot;, &quot;💗&quot;, &quot;😊&quot;, &quot;🧐&quot;, &quot;🧊&quot;))(set: _chipL to &quot;&quot;)(set: _chipP to &quot;&quot;)(set: _reactie to &quot;&quot;)
+(if: $toon)[(if: $dL &gt; 0)[(set: _chipL to &quot;&lt;span class=&#39;chip plus&#39;&gt;&quot; + ($fmt: $dL) + &quot;&lt;/span&gt;&quot;)](if: $dL &lt; 0)[(set: _chipL to &quot;&lt;span class=&#39;chip min&#39;&gt;&quot; + ($fmt: $dL) + &quot;&lt;/span&gt;&quot;)](if: $dP &gt; 0)[(set: _chipP to &quot;&lt;span class=&#39;chip plus&#39;&gt;&quot; + ($fmt: $dP) + &quot;&lt;/span&gt;&quot;)](if: $dP &lt; 0)[(set: _chipP to &quot;&lt;span class=&#39;chip min&#39;&gt;&quot; + ($fmt: $dP) + &quot;&lt;/span&gt;&quot;)](if: $tekst is not &quot;&quot;)[(set: _reactie to &quot;&lt;div class=&#39;reactie&#39;&gt;“&quot; + $tekst + &quot;”&lt;/div&gt;&quot;)]]
+(print: &quot;&lt;div class=&#39;statusbar&#39;&gt;&quot;
+ + &quot;&lt;div class=&#39;profile&#39;&gt;&quot;
+ + &quot;&lt;div class=&#39;avatar&#39; data-tier=&#39;&quot; + (str: _pt) + &quot;&#39;&gt;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;who&#39;&gt;&lt;div class=&#39;who-kicker&#39;&gt;Status van&lt;/div&gt;&lt;div class=&#39;who-name&#39;&gt;Maarten&lt;/div&gt;&lt;div class=&#39;who-sub&#39;&gt;&quot; + $ondertitel + &quot;&lt;/div&gt;&lt;/div&gt;&quot;
+ + &quot;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;stat geduld&#39; data-tier=&#39;&quot; + (str: _pt) + &quot;&#39; style=&#39;--v:&quot; + (str: $patience) + &quot;&#39;&gt;&quot;
+ + &quot;&lt;div class=&#39;stat-top&#39;&gt;&lt;span class=&#39;stat-icon&#39;&gt;&quot; + _pI&#39;s (_pt) + &quot;&lt;/span&gt;&lt;span class=&#39;stat-name&#39;&gt;Geduld&lt;/span&gt;&lt;span class=&#39;stat-num&#39;&gt;&quot; + (str: $patience) + &quot;&lt;/span&gt;&quot; + _chipP + &quot;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;stat-label&#39;&gt;&quot; + $patienceLabels&#39;s (_pt) + &quot;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;meter&#39;&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;stat liefde&#39; data-tier=&#39;&quot; + (str: _lt) + &quot;&#39; style=&#39;--v:&quot; + (str: $love) + &quot;&#39;&gt;&quot;
+ + &quot;&lt;div class=&#39;stat-top&#39;&gt;&lt;span class=&#39;stat-icon&#39;&gt;&quot; + _lI&#39;s (_lt) + &quot;&lt;/span&gt;&lt;span class=&#39;stat-name&#39;&gt;Match&lt;/span&gt;&lt;span class=&#39;stat-num&#39;&gt;&quot; + (str: $love) + &quot;&lt;/span&gt;&quot; + _chipL + &quot;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;stat-label&#39;&gt;&quot; + $loveLabels&#39;s (_lt) + &quot;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;meter&#39;&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&quot;
+ + _reactie
+ + &quot;&lt;/div&gt;&quot;)
+(set: $toon to false)]</tw-passagedata><tw-passagedata pid="6" name="Intro_Verliefd" tags="" position="475,125" size="100,100">(set: $next to &quot;Intro_Tijd&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Kun je even doen alsof je verliefd op me bent om deze test te laten werken?&quot;&lt;/div&gt;
+
+
+|bevestig&gt;[(link: &quot;Ja…&quot;)[(go-to: ($dest:))]]
+|bevestig&gt;[(link: &quot;Weet ik niet. Ik wil niet nog op één ongemakkelijke date.&quot;)[(go-to: ($dest:))]]
+|bevestig&gt;[(link: &quot;Nee hier krijg ik dus de ick van&quot;)[(go-to: ($dest:))]]</tw-passagedata><tw-passagedata pid="7" name="Intro_2" tags="" position="475,825" size="100,100">(set: $next to &quot;L1&quot;)
+&lt;div class=&quot;scene&quot;&gt;Zonlicht valt flikkerend door witte linnen gordijnen. Een man in een te strak overhemd zit tegenover je en schrijft iets op.&lt;/div&gt;
+&lt;div class=&quot;dokter&quot;&gt;&quot;Ik ben Maarten. Gaat u zitten.&quot;&lt;/div&gt;
+
+(link: &quot;Dank u, ik ga zitten.&quot;)[($apply: 0, 0, &quot;eerlijk&quot;)(set: $toonHeader to true)(go-to: ($dest:))]
+(link: &quot;Maar dit is geen powerpiont presentatie 🙂‍↔️ 🙂‍↔️ 🙂‍↔️|&quot;)[(set: $toonHeader to true)($apply: -1, 5, &quot;rage&quot;, &quot;nee dit is geen powerpoint presentatie&quot;)(go-to: ($dest:))]
+(link: &quot;Ik blijf liever staan.&quot;)[($apply: -5, -5, &quot;ontwijkend&quot;, &quot;oke prima dat je blijft staan&quot;)(set: $toonHeader to true)(go-to: ($dest:))]</tw-passagedata><tw-passagedata pid="8" name="Intro_Tijd" tags="" position="475,275" size="100,100">(set: $next to &quot;Intro_Jaar&quot;)
+# Hoe laat is het?
+&lt;div class=&quot;tijd&quot;&gt;&lt;div class=&quot;tijd-nu&quot;&gt;12:00&lt;/div&gt;&lt;input class=&quot;tijdslider&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1439&quot; step=&quot;5&quot; value=&quot;720&quot;&gt;&lt;/div&gt;
+|bevestig&gt;[(link: &quot;Zo laat is het&quot;)[(go-to: ($dest:))]]
+</tw-passagedata><tw-passagedata pid="9" name="Start" tags="" position="475,0" size="100,100">(set: $next to &quot;Intro_Verliefd&quot;)
 Welkom bij de **Maarten-FirstDate-Wijzer**.
-&lt;img src=&quot;Maarten.PNG&quot;&gt;
+|bevestig&gt;[(link: &quot;Start&quot;)[(go-to: ($dest:))]]</tw-passagedata><tw-passagedata pid="10" name="Intro_Naam" tags="" position="500,525" size="100,100">(set: $next to &quot;Intro_1&quot;)
+# Wat is je naam
+(input-box: 2bind $naam, &quot;X&quot;)
+(link: &quot;Dit is mijn naam&quot;)[(set: $naam to (trimmed: $naam))(if: $naam is &quot;&quot;)[(set: $naam to &quot;Melanie Brinkhaltes&quot;)](go-to: ($dest:))]
+</tw-passagedata><tw-passagedata pid="11" name="Q2" tags="" position="800,1300" size="100,100">(set: $next to &quot;Q3&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Vraag 2 van de 3:
+Heeft u wel eens gelogen om een date leuker te laten verlopen?&quot;&lt;/div&gt;
 
-[[Verder|Start2]]</tw-passagedata><tw-passagedata pid="5" name="Start2" tags="" position="625,125" size="100,100">Voordat we beginnen, wil ik je eerst beter leren kennen… wie ben jij eigenlijk?
-
-[[Een homosapien|Start3]]
-[[Maar dit is geen powerpiont presentatie 🙂‍↔️ 🙂‍↔️ 🙂‍↔️|Start3]]
-[[...|Start3]]
-</tw-passagedata><tw-passagedata pid="6" name="Start3" tags="" position="625,250" size="100,100">Duidelijk... ben je er klaar voor?
-
-[[Ja|Start4]]</tw-passagedata><tw-passagedata pid="7" name="Vraag3" tags="" position="425,850" size="100,100">(set: $progess to 100)
-(print: &#39;&lt;progress value=&quot;&#39; + (text: $progess) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;)
-
-&#39;&#39;Vraag 3 van de 3&#39;&#39;
-Waar zie jij jezelf over 5 minuten?
-(link: &quot;Bij jou. Uiteraard.&quot;)[
-(set: $bot to $bot + 1)
-  (goto: &quot;Vraag4&quot;)
-]
-(link: &quot;Waarschijnlijk nog steeds hier, maar met meer vragen.&quot;)[
-  (goto: &quot;Vraag4&quot;)
-]
-(link: &quot;Geen idee, ik leef gevaarlijk in het moment.&quot;)[
-  (goto: &quot;Vraag4&quot;)
-]
-</tw-passagedata><tw-passagedata pid="8" name="Vraag4" tags="" position="400,1000" size="100,100">(set: $progess to 5)
-(print: &#39;&lt;progress value=&quot;&#39; + (text: $progess) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;)
-&#39;&#39;Vraag 4 van de 3&#39;&#39;
-Hoe belangrijk is eerlijkheid voor jou?
-//(Ik heb net gelogen dat er maar 3 vragen zouden zijn.)//
-(link: &quot;Prima ik lieg ook tegen jouw hoor&quot;)[
-(set: $fifa to $fifa + 1)
-  (goto: &quot;Vraag37&quot;)
-]
-(link: &quot;Godverdomme hoelang gaat dit duren?!&quot;)[
-(set: $roelvink to $roelvink + 1)
-  (goto: &quot;Vraag37&quot;)
-]
-(link: &quot;Onacceptabel&quot;)[
-  (goto: &quot;Vraag37&quot;)
-]
-</tw-passagedata><tw-passagedata pid="9" name="Vraag37" tags="" position="375,1175" size="100,100">(set: $progess to 5)
-(print: &#39;&lt;progress value=&quot;&#39; + (text: $progess) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;)
-&#39;&#39;Vraag 37 van de 3&#39;&#39;
-Hoeveel ongewenste kinderen wil jij?
-(link: &quot;Pardon, dit wil jij weten op de eerste date?&quot;)[
-  (goto: &quot;Vraag37Excuses&quot;)
-]
-(link: &quot;Alleen als we daarna meteen scheiden&quot;)[
-(set: $roelvink to $roelvink + 1)
-  (goto: &quot;Vraag37Excuses&quot;)
-]
-(link: &quot;Nul ik ben zelf al een ongewenst kind&quot;)[
-(set: $aap to $aap + 1)
-  (goto: &quot;Vraag37Excuses&quot;)
-]
-</tw-passagedata><tw-passagedata pid="10" name="Vraag37Excuses" tags="" position="375,1325" size="100,100">Sorry, vraag 37 was misschien te gevoelig. Het kan ook de verkeerde indruk wekken dat ik slechte ouders heb, maar dat is helemaal niet zo. Ik hou heel veel van mijn ouders. Om het goed te maken wil ik een vraag stellen over jouw ouders.
+(link: &quot;Nee, nooit&quot;)[($apply: -5, -5, &quot;ontwijkend&quot;, &quot;Iedereen liegt, (print: $naam).&quot;)(go-to: ($dest:))]
+(link: &quot;Alleen over mijn hobbies&quot;)[($apply: 5, 5, &quot;grappig&quot;, &quot;Dat is het meest voorkomende.&quot;)(go-to: ($dest:))]
+(link: &quot;Hoezo? Wat heeft iemand gezegd?&quot;)[($apply: 5, 5, &quot;grappig&quot;, &quot;Nee niks hoor. Haha&quot;)(go-to: ($dest:))]
+(if: $aantalDrankjes &gt; 2)[|toilet&gt;[(link: &quot;Sorry, maar mag ik naar het toilet?&quot;)[($apply: -1, -1, &quot;eerlijk&quot;)(go-to: &quot;Toilet&quot;)]]]
+(if: $aantalDrankjes &gt; 2)[|broekplassen&gt;[(link: &quot;Plas in je broek&quot;)[($apply: -100, -100, &quot;grappig&quot;, &quot;WAAROM HEB JE IN JE BROEK GEPLAST.&quot;)(go-to: &quot;Broekplassen&quot;)]]]</tw-passagedata><tw-passagedata pid="12" name="Q3" tags="" position="1000,1300" size="100,100">(set: $next to &quot;Q4&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Vraag 3 van de 3: Wat is grammaticaal correct? Rummikuppen of Rummikubben?&quot;&lt;/div&gt;
 
 
-[[Verder|Vraag113]]</tw-passagedata><tw-passagedata pid="11" name="Vraag113" tags="" position="350,1525" size="100,100">(set: $progess to 50)
-(print: &#39;&lt;progress value=&quot;&#39; + (text: $progess) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;)
-&#39;&#39;Vraag 113 van de 3&#39;&#39;
-Wat betekent jouw moeder voor je? En voor mij??
-(link: &quot;Ze betekent alles voor me…&quot;)[
+(if: $aantalDrankjes &lt; 3)[
+(link: &quot;Rummikuppen&quot;)[($apply: 1, -1, &quot;ontwijkend&quot;, &quot;Het is Rummikubben*&quot;)(go-to: ($dest:))]
+(link: &quot;Rummikubben&quot;)[($apply: -10, 15, &quot;grappig&quot;, &quot;Heel goed! Heel knap&quot;)(go-to: ($dest:))]
+(link: &quot;Ik ben creatief met taal&quot;)[($apply: 15, 15, &quot;grappig&quot;, &quot;Haha, ik ben ook creatief met taal. Geen zorgen. Ik ben taalnazi.&quot;)(go-to: ($dest:))]
+]
+(else:)[
+&lt;div class=&quot;scene&quot;&gt;Je hebt te veel gedronken. .&lt;/div&gt;
+(if: $aantalDrankjes &gt; 2)[|broekplassen&gt;[(link: &quot;Plas in je broek&quot;)[($apply: -100, -100, &quot;grappig&quot;, &quot;WAAROM HEB JE IN JE BROEK GEPLAST.&quot;)(go-to: &quot;Broekplassen&quot;)]]]]</tw-passagedata><tw-passagedata pid="13" name="Q4" tags="" position="1200,1300" size="100,100">(set: $next to &quot;Q5&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Hoe belangrijk is eerlijkheid voor jou?
+//(Ik heb net gelogen dat er maar 3 vragen zouden zijn.)//&quot;&lt;/div&gt;
 
-  (goto: &quot;Vraag20&quot;)
-]
-(link: &quot;Soms leuk, soms stom&quot;)[
-(set: $aap to $aap + 1)
-  (goto: &quot;Vraag20&quot;)
-]
-(link: &quot;(Redacted)&quot;)[
-(set: $aap to $aap + 2)
-  (goto: &quot;Vraag20&quot;)
-]
-</tw-passagedata><tw-passagedata pid="12" name="Vraag20" tags="" position="350,1700" size="100,100">(set: $progess to 66)
-(print: &#39;&lt;progress value=&quot;&#39; + (text: $progess) + &#39;&quot; max=&quot;100&quot;&gt;&lt;/progress&gt;&#39;)
-&#39;&#39;Vraag 20 van de 3&#39;&#39;
-Als je op een onbewoond eiland moest gaan wonen, en je mocht maar één voorwerp meenemen, naar welk eiland zou je dan gaan?
+(link: &quot;Prima ik lieg ook tegen jouw hoor&quot;)[($apply: 10, 10, &quot;eerlijk&quot;, &quot;Mooi om te zien dat we elkaar goed begrijpen. Maar het moet *jou* zijn en niet *jouw*&quot;)(go-to: ($dest:))]
+(link: &quot;Godverdomme hoelang gaat dit duren?!&quot;)[($apply: -20, -20, &quot;grappig&quot;, &quot;Rustig blijven (print: $naam)&quot;)(go-to: ($dest:))]
+|uitgang&gt;[(link: &quot;Onacceptabel. Ga boos weg uit de kamer&quot;)[(set: $toonHeader to false)
+(go-to: &quot;Verlaten&quot;))]]</tw-passagedata><tw-passagedata pid="14" name="Q5" tags="" position="1400,1300" size="100,100">(set: $next to &quot;Q6&quot;)
+&lt;div class=&quot;scene&quot;&gt;Je telefoon trilt in je zak. Maarten kijkt er even naar, en daarna naar jou.&lt;/div&gt;
+&lt;div class=&quot;dokter&quot;&gt;&quot;Hoelang was u vandaag aan het doomscrollen, voordat u hier binnenkwam?&quot;&lt;/div&gt;
 
-(link: &quot;Epstein Island&quot;)[
+(link: &quot;Bijna niet. Ik ben heel bewust.&quot;)[($apply: 0, 5, &quot;ontwijkend&quot;)(go-to: ($dest:))]
+(link: &quot;Hé, dat is grappig, want ik zat zojuist op Bumble te doomscrollen.&quot;)[($apply: 3, 6, &quot;grappig&quot;, &quot;Ik wist niet dat u mij zo snel zou vinden.&quot;)(go-to: ($dest:))]
+(link: &quot;Uren. Ik schaam me er eerlijk gezegd voor.&quot;)[($apply: 6, 4, &quot;eerlijk&quot;, &quot;Dank voor de eerlijkheid. Ik heb er ook af en toe last van&quot;)(go-to: ($dest:))]
+</tw-passagedata><tw-passagedata pid="15" name="Q6" tags="" position="1600,1300" size="100,100">(set: $next to &quot;Q7&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Hoeveel ongewenste kinderen wil jij?&quot;&lt;/div&gt;
 
-  (goto: &quot;Uitslag1&quot;)
+(link: &quot;Pardon, dit wil jij weten op de eerste date?&quot;)[($apply: 20, 25, &quot;eerlijk&quot;, &quot;Oh ik had niet door dat wij op date waren. Interessant&quot;)(go-to: ($dest:))]
+(link: &quot;Alleen als we daarna meteen scheiden&quot;)[($apply: 0, 5, &quot;grappig&quot;, &quot;Verstandig&quot;)(go-to: ($dest:))]
+(link: &quot;Nul ik ben zelf al een ongewenst kind&quot;)[($apply: 0, 5, &quot;grappig&quot;, &quot;Oh. Sorry voor deze vraag dan.&quot;)(go-to: ($dest:))]
+</tw-passagedata><tw-passagedata pid="16" name="Verlaten" tags="" position="1200,500" size="100,100">(set: $toonHeader to false)
+(set: $ondertitel to &quot;Vreemde Vogel&quot;)
+&lt;div class=&quot;scene&quot;&gt;Je opent de deur en verlaat de ruimte. De gang is lang en baadt in licht. Aan de ene kant staat een wand van glas van vloer tot plafond, en erachter ligt, plotseling, de zee. Op de houten vloer ligt zand.&lt;/div&gt;
+
+[[Loop door-&gt;Gang]]</tw-passagedata><tw-passagedata pid="17" name="Gang" tags="" position="1275,650" size="100,100">&lt;div class=&quot;scene&quot;&gt;De gang is korter dan hij zojuist leek.&lt;/div&gt; 
+
+&lt;div class=&quot;scene&quot;&gt;De gang van het strandhuis. Aan het eind staat de tuindeur open. Daar snoeit een man in een groene overall de helmbeplanting langs het pad. Rechts hangt een deur met het bordje Tijdmachine. Links is een glazen schuifdeur naar het terras en het strand.&lt;/div&gt;
+(if: $socrates &gt; 0)[&lt;div class=&quot;scene&quot;&gt;Socrates snoeit nog steeds dezelfde struik.&lt;/div&gt;]
+
+[[Naar buiten-&gt;Buiten]]
+[[Praat met de tuinman-&gt;Socrates]]
+[[Terug naar de kamer van Maarten-&gt;KantoorTerug]]
+(if:$aantalDrankjes &gt; 0)[[[Ga naar de WC-&gt;WC]]]</tw-passagedata><tw-passagedata pid="18" name="Buiten" tags="" position="1000,800" size="100,100">
+&lt;div class=&quot;scene&quot;&gt;De schuifdeuren gaan open. Een breed strand tot aan de horizon, een lage wolk, een strandwandelaar die niet naar je kijkt. Zijn hond wel. Bij het hek staat een houten bord: Privéterrein.&lt;/div&gt;
+
+
+ (if: $patience &lt; 15)[
+&lt;div class=&quot;scene&quot;&gt;Eenmaal buiten zie je Maarten in de verte lopen.&lt;/div&gt;
 ]
-(link: &quot;Texel&quot;)[
-(set: $roelvink to $roelvink + 1)
-  (goto: &quot;Uitslag1&quot;)
+
+[[Maak een strandwandeling-&gt;Strandwandeling]]
+
+&lt;div class=&quot;scene&quot;&gt;Aan de overkant van het duinpad staat een bus bij de halte. De deuren staan open.&lt;/div&gt;
+
+[[Stap in de bus-&gt;EindeWeggelopen]]
+[[Ga terug naar binnen-&gt;Gang]]
+</tw-passagedata><tw-passagedata pid="19" name="Socrates" tags="" position="1150,900" size="100,100">&lt;div class=&quot;scene&quot;&gt;Een oudere man in een groene overall snoeit langzaam een heg. Op zijn naamplaatje staat: SOCRATES. Hij is de tuinman&lt;/div&gt;
+
+|gesprek&gt;[
+(if: $socrates is 0)[&lt;div class=&quot;dokter socrates&quot;&gt;&quot;Jij bent nieuw hier. Wat kom je doen bij Maarten?&quot;&lt;/div&gt;](else:)[&lt;div class=&quot;dokter socrates&quot;&gt;&quot;Jij weer. Hoe ging het?&quot;&lt;/div&gt;]
+(link: &quot;Ik zoek iets.&quot;)[(replace: ?gesprek)[&lt;div class=&quot;dokter socrates&quot;&gt;&quot;Wat zoek je?&quot;&lt;/div&gt;
+(link: &quot;Iets wat ik verloren ben.&quot;)[(replace: ?gesprek)[&lt;div class=&quot;dokter socrates&quot;&gt;&quot;Hier? Of bij jezelf?&quot;&lt;/div&gt;]]
+(link: &quot;Antwoorden eigenlijk.&quot;)[(replace: ?gesprek)[&lt;div class=&quot;dokter socrates&quot;&gt;&quot;Van Maarten? Of van jezelf?&quot;&lt;/div&gt;]]
+]]
+(link: &quot;Ik ontloop iets.&quot;)[(replace: ?gesprek)[&lt;div class=&quot;dokter socrates&quot;&gt;&quot;Wat ontloop je?&quot;&lt;/div&gt;
+(link: &quot;Maarten vooral.&quot;)[(replace: ?gesprek)[&lt;div class=&quot;dokter socrates&quot;&gt;&quot;Waarom zit je dan bij hem? Je kunt hier naar buiten lopen.&quot;&lt;/div&gt;]]
+(link: &quot;Een moeilijk gesprek.&quot;)[(replace: ?gesprek)[&lt;div class=&quot;dokter socrates&quot;&gt;&quot;En helpt het om hier in de gang te staan?&quot;&lt;/div&gt;]]
+]]
 ]
-(link: &quot;Groenland&quot;)[
-(set: $fifa to $fifa + 2)
-(set: $aap to $aap - 100)
-  (goto: &quot;Uitslag1&quot;)
+(set: $socrates to it + 1)
+
+[[Loop verder-&gt;Gang]]</tw-passagedata><tw-passagedata pid="20" name="Tijdmachine" tags="" position="1350,900" size="100,100">
+&lt;div class=&quot;scene&quot;&gt;Een deur zonder klink. Op het bordje staat TIJDMACHINE, en daaronder, kleiner: Wachtkamer. Wachttijd onbekend.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Binnen staan één leunstoel, een klok zonder wijzers en een draaiknop aan de muur. Iemand heeft er een briefje bij geplakt: Hoe ver terug?&lt;/div&gt;
+
+&lt;div class=&quot;tijd&quot;&gt;&lt;div class=&quot;tijd-nu&quot;&gt;12:00&lt;/div&gt;&lt;input class=&quot;tijdslider&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1439&quot; step=&quot;5&quot; value=&quot;720&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;scene tijd-hint&quot;&gt;Draai aan de knop.&lt;/div&gt;
+
+|bevestig&gt;[(link: &quot;Start de tijdmachine.&quot;)[(go-to: &quot;Tijdmachine_Uit&quot;)]]
+[[Verlaat de ruimte-&gt;Gang]]</tw-passagedata><tw-passagedata pid="21" name="KantoorTerug" tags="" position="1475,900" size="100,100">
+
+ (if: $patience &gt; 15)[
+ (set: $toonHeader to true)
+ &lt;div class=&quot;scene&quot;&gt;Je klopt aan. Maarten kijkt op van zijn map. Naast hem staat een lege kop thee..&lt;/div&gt;
+&lt;div class=&quot;dokter&quot;&gt;&quot;Daar bent u weer, (print: $naam).&quot;&lt;/div&gt;
+(link: &quot;Ga weer zitten.&quot;)[(go-to: ($dest:))]
+ ]
+(else:)[
+ &lt;div class=&quot;scene&quot;&gt;Maarten is hier niet meer.&lt;/div&gt;
+ [[Ga naar buiten-&gt;Gang]]
+]
+</tw-passagedata><tw-passagedata pid="22" name="EindeWeggelopen" tags="" position="1000,975" size="100,100">&lt;div class=&quot;scene&quot;&gt;Je stapt in. De deuren sluiten. Door het raam zie je Maarten op het terras staan, met zijn map. Achter hem rolt de zee uit. Hij zwaait niet. Hij schrijft. &lt;/div&gt;
+
+### Einde: weggelopen
+Je hebt het strandhuis verlaten. Je blijft achter in zijn aantekeningen.
+
+(link: &quot;Pak je telefoon en ga doomscrollen&quot;)[(reload:)]
+</tw-passagedata><tw-passagedata pid="23" name="TijdmachineUit" tags="" position="1350,1050" size="100,100">(set: $weg to it + 2)
+&lt;div class=&quot;scene&quot;&gt;Het licht flikkert. Je hoort een klok vlak naast je oor, en dan stilte. Je opent je ogen. Je zit nog steeds in de leunstoel.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Op de gang staat Maarten. Hij wijst op zijn horloge.&lt;/div&gt;
+&lt;div class=&quot;dokter&quot;&gt;&quot;Veertig minuten, (print: $naam). Mensen komen hier uit de wachtkamer met meer vragen dan antwoorden.&quot;&lt;/div&gt;
+
+(link: &quot;Sorry, ik was even in de tijd.&quot;)[(set: $next to &quot;Gang&quot;)($apply: -8, 3, &quot;grappig&quot;, &quot;Dat is geen excuus.&quot;)(go-to: ($dest:))]
+[[Zeg niets en loop terug-&gt;Gang]]</tw-passagedata><tw-passagedata pid="24" name="Intro_Jaar" tags="" position="475,400" size="100,100">(set: $next to &quot;Intro_Naam&quot;)
+# In welk jaar?
+&lt;div class=&quot;tijd&quot;&gt;&lt;div class=&quot;tijd-nu&quot;&gt;2026&lt;/div&gt;&lt;input class=&quot;jaarslider&quot; type=&quot;range&quot; min=&quot;2003&quot; max=&quot;2100&quot; step=&quot;1&quot; value=&quot;2050&quot;&gt;&lt;/div&gt;
+|bevestig&gt;[(link: &quot;Dit jaar.&quot;)[(go-to: $next)]]</tw-passagedata><tw-passagedata pid="25" name="L1" tags="" position="100,1000" size="100,100">(set: $next to &quot;L2&quot;)
+
+&lt;div class=&quot;dokter&quot;&gt;&quot;Kan ik je wat te drinken aanbieden?&quot;&lt;/div&gt;
+(link: &quot;Nee dankje&quot;)[
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Water&quot;)[
+    (set: $drankje to &quot;Water&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 5, 5, &quot;eerlijk&quot;, &quot;Hier je glas water&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Colaatje&quot;)[
+    (set: $drankje to &quot;Colaatje&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 5, 5, &quot;eerlijk&quot;, &quot;Hier je colaatje&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Koffie&quot;)[
+    (set: $drankje to &quot;Koffie&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 5, 5, &quot;eerlijk&quot;, &quot;Hier je kop koffie&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Thee&quot;)[
+    (set: $drankje to &quot;Thee&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 5, 5, &quot;eerlijk&quot;, &quot;Hier je kop thee&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Een glas wijn&quot;)[
+    (set: $drankje to &quot;Wijn&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    (set: $aantalAlcohol to $aantalAlcohol + 1)
+    ($apply: 5, 5, &quot;eerlijk&quot;, &quot;Hier je glas wijn&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Aperol Spritz&quot;)[
+    (set: $drankje to &quot;Aperol Spritz&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    (set: $aantalAlcohol to $aantalAlcohol + 1)
+    ($apply: 5, 5, &quot;eerlijk&quot;, &quot;Hier je Aperol Spritz&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Biertje&quot;)[
+    (set: $drankje to &quot;Biertje&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    (set: $aantalAlcohol to $aantalAlcohol + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je biertje&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Spa rood&quot;)[
+    (set: $drankje to &quot;Spa rood&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: -5, -5, &quot;eerlijk&quot;, &quot;Hier je glas bruiswater&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Limonade&quot;)[
+    (set: $drankje to &quot;Limonade&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 5, 5, &quot;eerlijk&quot;, &quot;Hier je limonade&quot;)
+    ((go-to: ($dest:))
 ]
 
 
-</tw-passagedata><tw-passagedata pid="13" name="Einde1" tags="" position="750,2100" size="100,100">Nu de vraag wil je op een first date met mij?
+</tw-passagedata><tw-passagedata pid="26" name="L2" tags="" position="100,1200" size="100,100">(set: $next to &quot;Q1&quot;)
+(if: $drankje is not &quot;&quot;)[
+    &lt;div class=&quot;scene&quot;&gt;Je neemt een slok van je (print: $drankje).&lt;/div&gt;
+]
+&lt;div class=&quot;dokter&quot;&gt;&quot;Er zijn maar 3 vragen&quot;&lt;/div&gt;
+(link: &quot;Laten we beginnen&quot;)[($apply: 0, 0, &quot;eerlijk&quot;)(go-to: ($dest:))]
+(if: $drankje is not &quot;&quot;)[
+[|toilet&gt;[(link: &quot;Ik wil eigenlijk nog een drankje&quot;)[(set: $next to &quot;L3&quot;)($apply: -10, 0, &quot;eerlijk&quot;)(go-to: &quot;Nog een drankje&quot;)]]]
+]
+
+
+
+
+
+</tw-passagedata><tw-passagedata pid="27" name="Nog een drankje" tags="" position="300,1100" size="100,100">&lt;div class=&quot;dokter&quot;&gt;&quot;Wat wil je drinken?&quot;&lt;/div&gt;
+
+(link: &quot;Water&quot;)[
+    (set: $drankje to &quot;Water&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je glas water&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Colaatje&quot;)[
+    (set: $drankje to &quot;Colaatje&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je colaatje&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Koffie&quot;)[
+    (set: $drankje to &quot;Koffie&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je kop koffie&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Thee&quot;)[
+    (set: $drankje to &quot;Thee&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je kop thee&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Een glas wijn&quot;)[
+    (set: $drankje to &quot;Wijn&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    (set: $aantalAlcohol to $aantalAlcohol + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je glas wijn&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Aperol Spritz&quot;)[
+    (set: $drankje to &quot;Aperol Spritz&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    (set: $aantalAlcohol to $aantalAlcohol + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je Aperol Spritz&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Biertje&quot;)[
+    (set: $drankje to &quot;Biertje&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    (set: $aantalAlcohol to $aantalAlcohol + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je biertje&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Spa rood&quot;)[
+    (set: $drankje to &quot;Spa rood&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je glas bruiswater&quot;)
+    ((go-to: ($dest:))
+]
+
+(link: &quot;Limonade&quot;)[
+    (set: $drankje to &quot;Limonade&quot;)
+    (set: $aantalDrankjes to $aantalDrankjes + 1)
+    ($apply: 0, 0, &quot;eerlijk&quot;, &quot;Hier je limonade&quot;)
+    ((go-to: ($dest:))
+]
+</tw-passagedata><tw-passagedata pid="28" name="L3" tags="" position="100,1400" size="100,100">(set: $next to &quot;Q1&quot;)
+(if: $drankje is not &quot;&quot;)[
+    &lt;div class=&quot;scene&quot;&gt;Je neemt een slok van je (print: $drankje).&lt;/div&gt;
+]
+&lt;div class=&quot;dokter&quot;&gt;&quot;Heb je genoeg gedronken?&quot;&lt;/div&gt;
+
+[|toilet&gt;[(link: &quot;Nee&quot;)[(set: $next to &quot;L4&quot;)($apply: -10, 0, &quot;eerlijk&quot;)(go-to: &quot;Nog een drankje&quot;)]]]
+
+(link: &quot;Laten we beginnen&quot;)[($apply: 0, 0, &quot;eerlijk&quot;)(go-to: ($dest:))]
+
+
+
+
+</tw-passagedata><tw-passagedata pid="29" name="L4" tags="" position="100,1600" size="100,100">(set: $next to &quot;Q1&quot;)
+(if: $drankje is not &quot;&quot;)[
+    &lt;div class=&quot;scene&quot;&gt;Je neemt een slok van je (print: $drankje).&lt;/div&gt;
+]
+&lt;div class=&quot;dokter&quot;&gt;&quot;Heb je genoeg gedronken??&quot;&lt;/div&gt;
+[|toilet&gt;[(link: &quot;Neeeee!!!&quot;)[(set: $next to &quot;L5&quot;)($apply: -10, 0, &quot;eerlijk&quot;)(go-to: &quot;Nog een drankje&quot;)]]]
+(link: &quot;Laten we beginnen&quot;)[($apply: 0, 0, &quot;eerlijk&quot;)(go-to: ($dest:))]
+
+
+</tw-passagedata><tw-passagedata pid="30" name="L5" tags="" position="100,1800" size="100,100">(set: $next to &quot;Q1&quot;)
+(if: $drankje is not &quot;&quot;)[
+    &lt;div class=&quot;scene&quot;&gt;Je neemt een slok van je (print: $drankje).&lt;/div&gt;
+]
+&lt;div class=&quot;dokter&quot;&gt;&quot;Je hebt genoeg gedronken... Zullen we beginnen&quot;&lt;/div&gt;
+
+(link: &quot;Laten we beginnen&quot;)[($apply: 0, 0, &quot;eerlijk&quot;)(go-to: ($dest:))]
+
+</tw-passagedata><tw-passagedata pid="31" name="GeenGeduld" tags="" position="800,1100" size="100,100">(set: $provoked to 100)
+Maarten legt de pen neer en kijkt je gefrustreerd aan.
+
+&lt;div class=&quot;dokter&quot;&gt;Ik ben zo terug.&lt;/div&gt;
+
+(link: &quot;Sorry, ik was onbeleefd.&quot;)[($apply: 20, 5, &quot;eerlijk&quot;, &quot;Geen probleem ik snap het.&quot;)(go-to: ($dest:))]
+|uitgang&gt;[(link: &quot;Besluit om de ruimte te verlaten.&quot;)[(go-to: &quot;Verlaten&quot;))]]</tw-passagedata><tw-passagedata pid="32" name="Toilet" tags="" position="600,1500" size="100,100">Maarten legt de pen neer en kijkt je vreemd aan.
+
+&lt;div class=&quot;dokter&quot;&gt;Ja gaat u gang. Toilet is hier om de hoek&lt;/div&gt;
+
+|uitgang&gt;[(link: &quot;Verlaat de ruimte&quot;)[(set: $toonHeader to false)
+(go-to: &quot;Verlaten&quot;))]]
+</tw-passagedata><tw-passagedata pid="33" name="Broekplassen" tags="" position="800,1500" size="100,100">(set: $aantalDrankjes to 0)
+Maarten legt de pen neer en kijkt je gefrustreerd aan.
+&lt;div class=&quot;dokter&quot;&gt;Ga mijn huis uit!&lt;/div&gt;
+
+|uitgang&gt;[(link: &quot;Besluit om de ruimte te verlaten.&quot;)[(set: $toonHeader to false)
+(set: $ondertitel to &quot;Boos&quot;)(go-to: &quot;Verlaten&quot;))]]</tw-passagedata><tw-passagedata pid="34" name="WC" tags="" position="1200,1100" size="100,100">(set: $aantalDrankjes to 0)
+&lt;div class=&quot;scene&quot;&gt;Je hebt je behoefte gedaan&lt;/div&gt;
+
+[[Ga terug-&gt;Gang]]
+</tw-passagedata><tw-passagedata pid="35" name="EindeMaartenWeg" tags="" position="1525,675" size="100,100">&lt;div class=&quot;scene&quot;&gt;Eenmaal buiten zie je Maarten in de verte lopen.&lt;/div&gt;
+
+### Einde: Maarten is weg
+(link: &quot;Pak je telefoon en ga doomscrollen&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="36" name="Q7" tags="" position="1800,1300" size="100,100">(set: $next to &quot;Q8&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Wat betekent jouw moeder voor je? En voor mij??&lt;/div&gt;
+
+(link: &quot;Ze betekent alles voor me…&quot;)[($apply: 20, 25, &quot;eerlijk&quot;, &quot;Lief&quot;)(go-to: ($dest:))]
+(link: &quot;Soms leuk, soms stom&quot;)[($apply: 1, 15, &quot;grappig&quot;)(go-to: ($dest:))]
+(link: &quot;(REDACTED)&quot;)[($apply: 50, 50, &quot;grappig&quot;, &quot;Mooi dus ik hoef niet meteen je ouders te ontmoeten?&quot;)(go-to: ($dest:))]
+</tw-passagedata><tw-passagedata pid="37" name="Q8" tags="" position="2000,1300" size="100,100">(set: $next to &quot;Uitslag&quot;)
+&lt;div class=&quot;dokter&quot;&gt;Als je op een onbewoond eiland moest gaan wonen, en je mocht maar één voorwerp meenemen, naar welk eiland zou je dan gaan?&lt;/div&gt;
+(set: $toonHeader to false)
+(link: &quot;Epstein Island.&quot;)[(set: $lot to &quot;Epstein&quot;)(go-to: &quot;Uitslag&quot;)]
+(link: &quot;Texel&quot;)[(set: $lot to &quot;Texel&quot;)(go-to: &quot;Uitslag&quot;)]
+(link: &quot;Groenland&quot;)[(set: $lot to &quot;Groenland&quot;)(go-to: &quot;Uitslag&quot;)]</tw-passagedata><tw-passagedata pid="38" name="Uitslag" tags="" position="2200,1300" size="100,100">(set: $ondertitel to &quot;Maarten · Eindverslag&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Goed. We zijn klaar, (print: $naam).&quot;&lt;/div&gt;
+
+
+### Gefelicteerd
+(if: $lot is &quot;Groenland&quot;)[Gefelicteerd! Je maakt kans op de FIFA Peace price! Jouw ambitie om naar groenland te gaan en jouw bereidheid om te liegen op deze test waren de doorslaggevende redenen.]
+(else-if: $lot is &quot;Texel&quot;)[Je bent drie generaties verwijderd van de orang-oetans. Je afkeer van het koude Groenland verraadde je. Hoogstwaarschijnlijk loopt die afstamming via je moederskant.]
+(else:)[Je bent de dochter van Dries Roelvink. Hoogstwaarschijnlijk heb je je liefde voor wijn van je vader.]
+
+
+
+
+
+
+
+
+[[Ja en nu?-&gt;EindeDate]]
+</tw-passagedata><tw-passagedata pid="39" name="EindeDate" tags="" position="2200,1425" size="100,100">(set: $ondertitel to &quot;Maarten · Besluit&quot;)
+&lt;div class=&quot;dokter&quot;&gt;&quot;Dus... wil je op date met me?&quot;&lt;/div&gt;
 
 [[Ja]]
-[[Nee]]
-</tw-passagedata><tw-passagedata pid="14" name="Ja" tags="" position="700,2250" size="100,100">&lt;script&gt;gtag(&#39;event&#39;, &#39;passage_view&#39;, {event_category: &#39;story&#39;,event_label: &quot;EindeJaDate&quot;,non_interaction: true});&lt;/script&gt;
-Wat leuk! 
+[[Nee]]</tw-passagedata><tw-passagedata pid="40" name="Ja" tags="" position="2300,1600" size="100,100">Wat leuk! 
+(link: &quot;Pak je telefoon en ga doomscrollen&quot;)[(reload:)]
 
+</tw-passagedata><tw-passagedata pid="41" name="Nee" tags="" position="2100,1600" size="100,100">Oke jammer. Het ga je goed!
+(link: &quot;Pak je telefoon en ga doomscrollen&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="42" name="Strandwandeling" tags="" position="825,550" size="100,100">(set: $toonHeader to false)
+(set: $strand to true)
+(set: $ondertitel to &quot;Strand&quot;)
 
-Wat lijkt jouw leuk?
-[[(Strand) Wandeling|DatePlannen]]
-[[Potje Poolen?|DatePlannen]]
-[[Iets vlak bij Roeterseiland campus UvA|DatePlannen]]
-[[Diner]]
-[[Museum]]</tw-passagedata><tw-passagedata pid="15" name="Nee" tags="" position="825,2250" size="100,100">&lt;script&gt;gtag(&#39;event&#39;, &#39;passage_view&#39;, {event_category: &#39;story&#39;,event_label: &quot;EindeNoDate&quot;,non_interaction: true});&lt;/script&gt;
-Oke jammer. Het ga je goed!</tw-passagedata><tw-passagedata pid="16" name="Diner" tags="" position="950,2525" size="100,100">Sorry, maar dit lijkt mij iets voor een tweede date!
+&lt;div class=&quot;scene&quot;&gt;Je hebt de hele dag in een kamer gezeten waar iemand jou analyseerde. Nu wil je alleen nog lopen.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Je trekt je schoenen uit. Het zand is koel en zacht onder je voeten.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Achter je schuift de glazen deur dicht. Je hoort het slot.  Er is geen weg meer terug naar binnen.&lt;/div&gt;
 
-[[Ga terug|Ja]]</tw-passagedata><tw-passagedata pid="17" name="Museum" tags="" position="825,2650" size="100,100">Sorry, maar dit lijkt mij iets voor een tweede date!
+Je kijkt niet om.
 
-[[Ga terug|Ja]]</tw-passagedata><tw-passagedata pid="18" name="DatePlannen" tags="" position="525,2500" size="100,100">Leuk! Dat lijkt mij erg leuk. </tw-passagedata><tw-passagedata pid="19" name="DatePlannen36" tags="" position="625,2650" size="100,100">Leuk! Dat lijkt mij erg leuk. Stel je dat meteen voor als wij matchen op de datingapp?
+(link: &quot;Loop naar de zee&quot;)[(go-to: &quot;Strand_Rust&quot;)]</tw-passagedata><tw-passagedata pid="43" name="Strand_Rust" tags="" position="825,400" size="100,100">&lt;div class=&quot;scene&quot;&gt;Het strand is breed, bleek en eindeloos. Het is prachtig hier.&lt;/div&gt;
 
-Hier zijn de vragen:
+&lt;div class=&quot;scene&quot;&gt;En dan merk je het. Er is niemand. Geen agenda, geen standup, geen Teams-melding die in de hoek van je scherm verschijnt. Geen negen tot vijf. Alleen jij, de wind en een horizon die niets van je vraagt.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Je schouders zakken. Je had niet door dat ze zo hoog zaten. Voor het eerst in jaren haal je adem zonder dat het een pauze tussen twee taken is.&lt;/div&gt;
 
-1. Met wie op deze wereld zou je weleens willen dineren?
-2. Zou je beroemd willen zijn? En waarmee dan?
-3. Oefen je weleens een telefoontje voordat je gaat bellen? Waarom?
-4. Wat betekent een ‘perfecte’ dag voor jou?
-5. Wanneer zong je voor het laatst toen je alleen was? En waar iemand bij was?
-6. Als je 90 jaar zou worden en je had de keuze om de laatste 60 jaar de geest óf het lichaam van een 30-jarige te hebben, wat zou je kiezen?
-7. Heb je een geheim voorgevoel over hoe je zult sterven?
-8. Noem drie dingen die jij en je partner gemeen lijken te hebben.
-9. Waarvoor ben je het meest dankbaar in je leven?
-10. Wat had je graag anders gezien aan je eigen opvoeding?
-11. Vertel je partner in vier minuten zo gedetailleerd mogelijk je levensverhaal.
-12. Als je morgen wakker zou worden met één nieuwe kwaliteit of competentie, welke zou je dan kiezen?
+&lt;div class=&quot;scene&quot;&gt;In je zak trilt je telefoon.&lt;/div&gt;
 
-13. Als een kristallen bol je de waarheid over jezelf, je leven, de toekomst of iets anders zou laten zien, wat zou je dan willen weten?
-14. Is er iets waarvan je al heel lang droomt? En waarom heb je het nog niet gedaan?
-15. Wat is het meest betekenisvolle dat je bereikt hebt in je leven?
-16. Wat vind je het belangrijkst in een vriendschap?
-17. Wat is je dierbaarste herinnering?
-18. Wat is je ergste herinnering?
-19. Als je wist dat je over een jaar zou overlijden, zou je dan iets veranderen aan je huidige leven? Waarom?
-20. Wat betekent vriendschap voor je?
-21. Welke rollen spelen liefde en genegenheid in je leven?
-22. Noem vijf positieve eigenschappen van je partner.
-23. Hoe hecht en warm is je familie? Denk je dat jouw jeugd fijner was dan die van de meeste andere mensen?
-24. Hoe denk je over de relatie met je moeder?
+(link: &quot;Haal hem eruit en kijk&quot;)[(set: $telefoon to &quot;bij je&quot;)(go-to: &quot;Strand_Dries&quot;)]
+(link: &quot;Zet hem op vliegtuigmodus&quot;)[(set: $telefoon to &quot;stil&quot;)(go-to: &quot;Strand_Dries&quot;)]
+(link: &quot;Gooi hem zo ver mogelijk in zee&quot;)[(set: $telefoon to &quot;weg&quot;)(go-to: &quot;Strand_Dries&quot;)]</tw-passagedata><tw-passagedata pid="44" name="Strand_Dries" tags="" position="725,225" size="100,100">&lt;div class=&quot;scene&quot;&gt;
+(if: $telefoon is &quot;weg&quot;)[De zee slikt hem zonder geluid in. Je voelt je lichter dan je had verwacht, en een beetje schuldig,]
+(else-if: $telefoon is &quot;stil&quot;)[Het scherm wordt zwart.]
+(else:)[Je ziet een melding, een herinnering, een mailtje over een vergadering van morgen. Je steekt hem terug in je zak.]
+&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Je loopt verder. De zon zakt een stukje en het licht wordt goud. Ver voor je, aan de rand van het water, beweegt iets.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Een man met een surfplank onder zijn arm. Hij loopt langzaam, zijn haar nat van de zee, en hij kijkt jouw kant op. Hij staat stil.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Hij zwaait. Het is Dries Roelvink.&lt;/div&gt;
 
-25. Maak elk drie ware ‘wij’-uitspraken. Bijvoorbeeld: ‘Wij zitten in deze kamer en we voelen…’
-26. Maak deze zin af: ‘Ik wilde dat ik iemand had waarmee ik … kon delen.’
-27. Deel iets dat belangrijk is om over jou te weten.
-28. Vertel je partner wat je leuk vindt aan hem/haar. Wees heel eerlijk en zeg dingen die je waarschijnlijk niet zou zeggen tegen iemand die je net hebt ontmoet.
-29. Deel het meest beschamende moment in je leven.
-30. Wat was de laatste keer dat je in het bijzijn van een ander huilde? En dat je huilde toen je alleen was?
-31. Vertel je partner iets wat je leuk aan hem/haar vindt.
-32. Wat is te serieus om grappen over te maken?
-33. Als je vanavond zou sterven: waarvan zou je het meest spijt hebben dat je het niemand hebt verteld? Waarom heb je het nog niet verteld?
-34. Je huis, met alles wat je bezit, staat in brand. Nadat je geliefden en huisdieren gered zijn, heb je nog tijd om één ding te redden. Wat zou het zijn? Waarom?
-35. Van wie van al je familieleden zou je het het ergst vinden als hij of zij zou overlijden? Waarom?
-36. Vertel een persoonlijk probleem en vraag je partner hoe hij of zij ermee om zou gaan. Vraag ook hoe je partner zich voelt bij het probleem dat je gekozen hebt.
-Deel vier
+(link: &quot;Zwaai terug&quot;)[(set: $dries to &quot;zwaai&quot;)(go-to: &quot;Strand_Zwaai&quot;)]
+(link: &quot;Ren zo hard mogelijk weg&quot;)[(set: $dries to &quot;ren&quot;)(go-to: &quot;Strand_Ren&quot;)]</tw-passagedata><tw-passagedata pid="45" name="Strand_Ren" tags="" position="750,50" size="100,100">&lt;div class=&quot;scene&quot;&gt;Je weet niet waarom. Je lichaam is sneller dan je gedachten. Je laat je schoenen vallen en rent.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Dan kijk je achterom.&lt;/div&gt;
+[[Kijk om-&gt;StrandWeg]]</tw-passagedata><tw-passagedata pid="46" name="Strand_Zwaai" tags="" position="925,250" size="100,100">&lt;div class=&quot;scene&quot;&gt;Je zwaait naar Dries Roelvink&lt;/div&gt;
 
-Bonus: Kijk elkaar vier minuten onafgebroken in de ogen zonder iets te zeggen.</tw-passagedata><tw-passagedata pid="20" name="Uitslag1" tags="" position="600,1775" size="100,100">Je hebt de quiz gehaald.
+[[Ga verder met het leven-&gt;StrandWeg]]</tw-passagedata><tw-passagedata pid="47" name="StrandWeg" tags="" position="1100,175" size="100,100">&lt;div class=&quot;scene&quot;&gt;
+(if: $dries is &quot;zwaai&quot;)[Het schuim trekt weg. Het strand ligt er stil bij.]
+(else:)[Het strand achter je is leeg, tot aan de horizon.]
+&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Dries is weg.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;De zon raakt de horizon. Het licht wordt oranje, dan roze.&lt;/div&gt;
 
-(link: &quot;Bekijk uitslag&quot;)[
-  (if: $fifa &gt; 1)[
-    (goto: &quot;UitslagFifa&quot;)
-  ]
-  (else-if: $roelvink &gt; 1)[
-    (goto: &quot;Uitslagroelvink&quot;)
-  ]
-   (else-if: $bot &gt; 10)[
-    (goto: &quot;UitslagBot&quot;)
-  ] 
-  (else-if: $aap &gt; 1)[
-    (goto: &quot;UitslaagAap&quot;)
-  ]
-  (else:)[
-    (goto: &quot;UitslagHR&quot;)
-  ]
-]
+[[Blijf even staan-&gt;StrandLot]]</tw-passagedata><tw-passagedata pid="48" name="StrandLot" tags="" position="1375,150" size="100,100">&lt;div class=&quot;scene&quot;&gt;Je gaat zitten.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;Je denkt aan hoe je hier kwam. Als je een uur langer was gebleven, een minuut eerder was vertrokken, een andere vraag had beantwoord, had je dit strand nooit gezien.&lt;/div&gt;
+&lt;div class=&quot;scene&quot;&gt;
+(if: $telefoon is &quot;weg&quot;)[Je telefoon ligt ergens op de zeebodem. Je kunt hem niet vragen of dit toeval was.]
+(else-if: $telefoon is &quot;stil&quot;)[Je telefoon ligt stil in je zak. Hij weet het ook niet.]
+(else:)[Je telefoon trilt in je zak. Je laat hem trillen.]
+&lt;/div&gt;
 
-</tw-passagedata><tw-passagedata pid="21" name="UitslagFifa" tags="" position="575,1925" size="100,100">&lt;script&gt;gtag(&#39;event&#39;, &#39;passage_view&#39;, {event_category: &#39;story&#39;,event_label: &quot;UitslagFifa&quot;,non_interaction: true});&lt;/script&gt;
-&#39;&#39;Uitslag:&#39;&#39; Gefelicteerd! Je maakt kans op de FIFA Peace price!
+&lt;div class=&quot;scene&quot;&gt;Misschien was het toeval. Misschien was alles wat je koos al uitgekozen, ver vóór je het wist. Misschien is het lot niet iets wat je tegenkomt, maar iets wat je pas achteraf herkent.&lt;/div&gt;
 
-&lt;img src=&quot;FIFA.jpg&quot;&gt;
+### Bestaat het lot?
 
-Jouw ambitie om naar groenland te gaan en jouw bereidheid om te liegen op deze test waren de doorslaggevende redenen.
+(link: &quot;Ja. Alles viel op zijn plek.&quot;)[(set: $lot to &quot;ja&quot;)(go-to: &quot;Einde_Lot&quot;)]
+(link: &quot;Nee. Het was gewoon toeval.&quot;)[(set: $lot to &quot;nee&quot;)(go-to: &quot;Einde_Lot&quot;)]
+(link: &quot;Ik weet het niet. Maar het voelde als iets.&quot;)[(set: $lot to &quot;misschien&quot;)(go-to: &quot;Einde_Lot&quot;)]</tw-passagedata><tw-passagedata pid="49" name="Einde_Lot" tags="" position="1550,50" size="100,100">&lt;div class=&quot;scene&quot;&gt;
+&lt;div class=&quot;scene&quot;&gt;De zon is inmiddels ondergegaan.&lt;/div&gt;
 
-[[Verder|Einde1]]</tw-passagedata><tw-passagedata pid="22" name="UitslaagAap" tags="" position="750,1925" size="100,100">&lt;script&gt;gtag(&#39;event&#39;, &#39;passage_view&#39;, {event_category: &#39;story&#39;,event_label: &quot;UitslagAap&quot;,non_interaction: true});&lt;/script&gt;
+Je loopt verder, zonder dat iemand je zoekt.
 
-&#39;&#39;Uitslag:&#39;&#39; Je bent drie generaties verwijderd van de orang-oetans.
-
-
-&lt;img src=&quot;smile-monkey.gif&quot;&gt;
-
-Je afkeer van het koude Groenland verraadde je. Hoogstwaarschijnlijk loopt die afstamming via je moederskant.
-
-
-
-
-
-[[Verder|Einde1]]</tw-passagedata><tw-passagedata pid="23" name="Uitslagroelvink" tags="" position="900,1925" size="100,100">&lt;script&gt;gtag(&#39;event&#39;, &#39;passage_view&#39;, {event_category: &#39;story&#39;,event_label: &quot;UitslagRoelvink&quot;,non_interaction: true});&lt;/script&gt;
-&#39;&#39;Uitslag:&#39;&#39; Je bent de dochter van Dries Roelvink.
-
-&lt;img src=&quot;dries-dries-roelvink.gif&quot;&gt;
-
-Hoogstwaarschijnlijk heb je je liefde voor wijn van je vader.
-
-[[Verder|Einde1]]
-</tw-passagedata><tw-passagedata pid="24" name="UitslagBot" tags="" position="425,2000" size="100,100">&lt;script&gt;gtag(&#39;event&#39;, &#39;passage_view&#39;, {event_category: &#39;story&#39;,event_label: &quot;UitslagBot&quot;,non_interaction: true});&lt;/script&gt;
-&#39;&#39;Uitslag:&#39;&#39; Je bent een AI-chatbot.
-
-&lt;img src=&quot;Kara.png&quot;&gt;
-
-Je kunt niet huilen. En op de vraag “Waar zie jij jezelf over vijf minuten?” zei je zonder twijfel: “Bij jou. Uiteraard.”
-
-[[Verder|Einde1]]</tw-passagedata><tw-passagedata pid="25" name="UitslagHR" tags="" position="1150,1975" size="100,100">&lt;script&gt;gtag(&#39;event&#39;, &#39;passage_view&#39;, {event_category: &#39;story&#39;,event_label: &quot;UitslagHR&quot;,non_interaction: true});&lt;/script&gt;
-&#39;&#39;Uitslag:&#39;&#39; Je bent een HR medewerker
-
-&lt;img src=&quot;HR.png&quot;&gt;
-
-[[Verder|Einde1]]</tw-passagedata></tw-storydata>
+(if: $telefoon is &quot;weg&quot;)[(link: &quot;Begin opnieuw&quot;)[(reload:)]](else:)[(link: &quot;Pak je telefoon en ga doomscrollen&quot;)[(reload:)]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
