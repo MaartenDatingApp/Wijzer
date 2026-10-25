@@ -58,7 +58,6 @@ tw-story, tw-story * { -webkit-tap-highlight-color: transparent; }
   background-image: var(--maarten);
   background-size: cover; background-position: center;
   border: 2px solid #fff;
-  filter: grayscale(1);
 }
 .who { line-height: 1.15; }
 .who-kicker { font-size: .65em; letter-spacing: .12em; text-transform: uppercase; color: #aaa; }
@@ -78,6 +77,19 @@ tw-story, tw-story * { -webkit-tap-highlight-color: transparent; }
   margin-top: 4px;
   font-weight: 700; font-size: .88em; line-height: 1.2;
   min-height: 2.4em;
+}
+
+/* Scoreverandering tussen label en balk */
+.stat-delta {
+  min-height: 1.6rem;       /* ruimte blijft gereserveerd, balk verspringt niet */
+  margin-top: 4px;
+}
+.stat-delta .chip {
+  margin: 0 6px 0 0;
+  padding: 2px 8px;
+  font-size: .72em;
+  letter-spacing: 0;
+  white-space: nowrap;
 }
 
 /* Balkje */
@@ -129,7 +141,7 @@ tw-story, tw-story * { -webkit-tap-highlight-color: transparent; }
 /* ============ KEUZES ============ */
 tw-link {
   display: block; box-sizing: border-box;
-  min-height: 44px; margin: 4px 0; padding: 10px 14px;  /* was 48px / 10px 0 / 12px 14px */
+  min-height: 44px; margin: 4px 0; padding: 10px 14px;
   border: 1px solid #fff;
   background: transparent;
   color: #fff !important;
@@ -143,13 +155,13 @@ tw-link:active { background: #fff; color: #000 !important; }
   tw-link:hover { background: #fff; color: #000 !important; }
 }
 tw-link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
 /* ============ SLIDER & INVOER ============ */
 .tijd { margin: 18px 0; text-align: center; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
 .tijd-nu { font-size: 2.4em; font-weight: 700; font-variant-numeric: tabular-nums; margin-bottom: 6px; }
 .tijdslider,
-.jaarslider { width: 100%; height: 36px; accent-color: #fff; background: transparent; }
-.tijdslider,
-.jaarslider { touch-action: pan-y; }
+.jaarslider { width: 100%; height: 36px; accent-color: #fff; background: transparent; touch-action: pan-y; }
+
 tw-story textarea,
 tw-story input[type="text"] {
   box-sizing: border-box; width: 100%;
@@ -161,7 +173,7 @@ tw-story input[type="text"] {
 }
 tw-story textarea:focus { outline: 2px solid #fff; outline-offset: 2px; }
 
-/* ============ OORANJE UITGANG ============ */
+/* ============ ORANJE UITGANG ============ */
 tw-hook[name="uitgang"] { display: block; margin-top: 22px; }
 tw-hook[name="uitgang"] tw-link {
   background: #ff9500; border-color: #ff9500;
@@ -172,10 +184,7 @@ tw-hook[name="uitgang"] tw-link:active { background: #cc7700; border-color: #cc7
   tw-hook[name="uitgang"] tw-link:hover { background: #ffb340; border-color: #ffb340; color: #000 !important; }
 }
 
-
-  
-  
-/* Naar het toilet vragen — lichtblauw */
+/* ============ NAAR HET TOILET VRAGEN: lichtblauw ============ */
 tw-hook[name="toilet"] { display: block; margin-top: 22px; }
 tw-hook[name="toilet"] tw-link {
   background: #87cefa;
@@ -196,7 +205,7 @@ tw-hook[name="toilet"] tw-link:active {
   }
 }
 
-/* Een boer laten — bruin */
+/* ============ EEN BOER LATEN: bruin ============ */
 tw-hook[name="boer"] { display: block; margin-top: 22px; }
 tw-hook[name="boer"] tw-link {
   background: #a56a43;
@@ -217,7 +226,7 @@ tw-hook[name="boer"] tw-link:active {
   }
 }
 
-/* Overgeven — groen */
+/* ============ OVERGEVEN: groen ============ */
 tw-hook[name="overgeven"] { display: block; margin-top: 22px; }
 tw-hook[name="overgeven"] tw-link {
   background: #43a047;
@@ -238,7 +247,7 @@ tw-hook[name="overgeven"] tw-link:active {
   }
 }
 
-/* In je broek plassen — paars */
+/* ============ IN JE BROEK PLASSEN: paars ============ */
 tw-hook[name="broekplassen"] { display: block; margin-top: 22px; }
 tw-hook[name="broekplassen"] tw-link {
   background: #9c27b0;
@@ -257,12 +266,7 @@ tw-hook[name="broekplassen"] tw-link:active {
     border-color: #ba68c8;
     color: #fff !important;
   }
-}  
-  
-
-
-
-
+}
 
 /* ============ REACTIE IN DE HEADER ============ */
 .reactie {
@@ -277,24 +281,7 @@ tw-hook[name="broekplassen"] tw-link:active {
 @media (max-width: 380px) {
   .statusbar { gap: 8px; }
   .stat-name { letter-spacing: .05em; }
-  
-  
-  
-.stat-top { flex-wrap: wrap; row-gap: 4px; }
-
-.stat .chip {
-  margin: 0 0 0 6px;
-  padding: 1px 6px;
-  font-size: .7em;
-  letter-spacing: 0;
-  white-space: nowrap;
-}
-  
-  
-
-  
-  
-  </style><script role="script" id="twine-user-script" type="text/twine-javascript">document.addEventListener('input', function (e) {
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">document.addEventListener('input', function (e) {
   var el = e.target;
   if (!el.classList) return;
 
@@ -403,7 +390,7 @@ Maarten legt de pen neer en kijkt je even aan.
   (else:)[(output-data: $next)]
 ]))
 }
-</tw-passagedata><tw-passagedata pid="5" name="Statusbalk" tags="header" position="1300,300" size="100,100">(if: $toonHeader)[(set: _pt to ($patienceTier: $patience))(set: _lt to ($loveTier: $love))(set: _pI to (a: &quot;🧘&quot;, &quot;🙂&quot;, &quot;🙂&quot;, &quot;😒&quot;, &quot;😤&quot;, &quot;💀&quot;))(set: _lI to (a: &quot;💘&quot;, &quot;💗&quot;, &quot;😊&quot;, &quot;🧐&quot;, &quot;🧊&quot;))(set: _chipL to &quot;&quot;)(set: _chipP to &quot;&quot;)(set: _reactie to &quot;&quot;)
+</tw-passagedata><tw-passagedata pid="5" name="Statusbalk" tags="header" position="1300,300" size="100,100">{(if: $toonHeader)[(set: _pt to ($patienceTier: $patience))(set: _lt to ($loveTier: $love))(set: _pI to (a: &quot;🧘&quot;, &quot;🙂&quot;, &quot;🙂&quot;, &quot;😒&quot;, &quot;😤&quot;, &quot;💀&quot;))(set: _lI to (a: &quot;💘&quot;, &quot;💗&quot;, &quot;😊&quot;, &quot;🧐&quot;, &quot;🧊&quot;))(set: _chipL to &quot;&quot;)(set: _chipP to &quot;&quot;)(set: _reactie to &quot;&quot;)
 (if: $toon)[(if: $dL &gt; 0)[(set: _chipL to &quot;&lt;span class=&#39;chip plus&#39;&gt;&quot; + ($fmt: $dL) + &quot;&lt;/span&gt;&quot;)](if: $dL &lt; 0)[(set: _chipL to &quot;&lt;span class=&#39;chip min&#39;&gt;&quot; + ($fmt: $dL) + &quot;&lt;/span&gt;&quot;)](if: $dP &gt; 0)[(set: _chipP to &quot;&lt;span class=&#39;chip plus&#39;&gt;&quot; + ($fmt: $dP) + &quot;&lt;/span&gt;&quot;)](if: $dP &lt; 0)[(set: _chipP to &quot;&lt;span class=&#39;chip min&#39;&gt;&quot; + ($fmt: $dP) + &quot;&lt;/span&gt;&quot;)](if: $tekst is not &quot;&quot;)[(set: _reactie to &quot;&lt;div class=&#39;reactie&#39;&gt;“&quot; + $tekst + &quot;”&lt;/div&gt;&quot;)]]
 (print: &quot;&lt;div class=&#39;statusbar&#39;&gt;&quot;
  + &quot;&lt;div class=&#39;profile&#39;&gt;&quot;
@@ -411,16 +398,18 @@ Maarten legt de pen neer en kijkt je even aan.
  + &quot;&lt;div class=&#39;who&#39;&gt;&lt;div class=&#39;who-kicker&#39;&gt;Status van&lt;/div&gt;&lt;div class=&#39;who-name&#39;&gt;Maarten&lt;/div&gt;&lt;div class=&#39;who-sub&#39;&gt;&quot; + $ondertitel + &quot;&lt;/div&gt;&lt;/div&gt;&quot;
  + &quot;&lt;/div&gt;&quot;
  + &quot;&lt;div class=&#39;stat geduld&#39; data-tier=&#39;&quot; + (str: _pt) + &quot;&#39; style=&#39;--v:&quot; + (str: $patience) + &quot;&#39;&gt;&quot;
- + &quot;&lt;div class=&#39;stat-top&#39;&gt;&lt;span class=&#39;stat-icon&#39;&gt;&quot; + _pI&#39;s (_pt) + &quot;&lt;/span&gt;&lt;span class=&#39;stat-name&#39;&gt;Geduld&lt;/span&gt;&lt;span class=&#39;stat-num&#39;&gt;&quot; + (str: $patience) + &quot;&lt;/span&gt;&quot; + _chipP + &quot;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;stat-top&#39;&gt;&lt;span class=&#39;stat-icon&#39;&gt;&quot; + _pI&#39;s (_pt) + &quot;&lt;/span&gt;&lt;span class=&#39;stat-name&#39;&gt;Geduld&lt;/span&gt;&lt;span class=&#39;stat-num&#39;&gt;&quot; + (str: $patience) + &quot;&lt;/span&gt;&lt;/div&gt;&quot;
  + &quot;&lt;div class=&#39;stat-label&#39;&gt;&quot; + $patienceLabels&#39;s (_pt) + &quot;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;stat-delta&#39;&gt;&quot; + _chipP + &quot;&lt;/div&gt;&quot;
  + &quot;&lt;div class=&#39;meter&#39;&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&quot;
  + &quot;&lt;div class=&#39;stat liefde&#39; data-tier=&#39;&quot; + (str: _lt) + &quot;&#39; style=&#39;--v:&quot; + (str: $love) + &quot;&#39;&gt;&quot;
- + &quot;&lt;div class=&#39;stat-top&#39;&gt;&lt;span class=&#39;stat-icon&#39;&gt;&quot; + _lI&#39;s (_lt) + &quot;&lt;/span&gt;&lt;span class=&#39;stat-name&#39;&gt;Match&lt;/span&gt;&lt;span class=&#39;stat-num&#39;&gt;&quot; + (str: $love) + &quot;&lt;/span&gt;&quot; + _chipL + &quot;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;stat-top&#39;&gt;&lt;span class=&#39;stat-icon&#39;&gt;&quot; + _lI&#39;s (_lt) + &quot;&lt;/span&gt;&lt;span class=&#39;stat-name&#39;&gt;Match&lt;/span&gt;&lt;span class=&#39;stat-num&#39;&gt;&quot; + (str: $love) + &quot;&lt;/span&gt;&lt;/div&gt;&quot;
  + &quot;&lt;div class=&#39;stat-label&#39;&gt;&quot; + $loveLabels&#39;s (_lt) + &quot;&lt;/div&gt;&quot;
+ + &quot;&lt;div class=&#39;stat-delta&#39;&gt;&quot; + _chipL + &quot;&lt;/div&gt;&quot;
  + &quot;&lt;div class=&#39;meter&#39;&gt;&lt;i&gt;&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;&quot;
  + _reactie
  + &quot;&lt;/div&gt;&quot;)
-(set: $toon to false)]</tw-passagedata><tw-passagedata pid="6" name="Intro_Verliefd" tags="" position="475,125" size="100,100">(set: $next to &quot;Intro_Tijd&quot;)
+(set: $toon to false)]}</tw-passagedata><tw-passagedata pid="6" name="Intro_Verliefd" tags="" position="475,125" size="100,100">(set: $next to &quot;Intro_Tijd&quot;)
 &lt;div class=&quot;dokter&quot;&gt;&quot;Kun je even doen alsof je verliefd op me bent om deze test te laten werken?&quot;&lt;/div&gt;
 
 
@@ -431,7 +420,7 @@ Maarten legt de pen neer en kijkt je even aan.
 &lt;div class=&quot;dokter&quot;&gt;&quot;Ik ben Maarten. Gaat u zitten.&quot;&lt;/div&gt;
 
 (link: &quot;Dank u, ik ga zitten.&quot;)[($apply: 0, 0, &quot;eerlijk&quot;)(set: $toonHeader to true)(go-to: ($dest:))]
-(link: &quot;Maar dit is geen powerpiont presentatie 🙂‍↔️ 🙂‍↔️ 🙂‍↔️|&quot;)[(set: $toonHeader to true)($apply: -1, 5, &quot;rage&quot;, &quot;nee dit is geen powerpoint presentatie&quot;)(go-to: ($dest:))]
+(link: &quot;Maar dit is geen powerpiont presentatie 🙂‍↔️ 🙂‍↔️ 🙂‍↔️&quot;)[(set: $toonHeader to true)($apply: -1, 5, &quot;rage&quot;, &quot;nee dit is geen powerpoint presentatie&quot;)(go-to: ($dest:))]
 (link: &quot;Ik blijf liever staan.&quot;)[($apply: -5, -5, &quot;ontwijkend&quot;, &quot;oke prima dat je blijft staan&quot;)(set: $toonHeader to true)(go-to: ($dest:))]</tw-passagedata><tw-passagedata pid="8" name="Intro_Tijd" tags="" position="475,275" size="100,100">(set: $next to &quot;Intro_Jaar&quot;)
 # Hoe laat is het?
 &lt;div class=&quot;tijd&quot;&gt;&lt;div class=&quot;tijd-nu&quot;&gt;12:00&lt;/div&gt;&lt;input class=&quot;tijdslider&quot; type=&quot;range&quot; min=&quot;0&quot; max=&quot;1439&quot; step=&quot;5&quot; value=&quot;720&quot;&gt;&lt;/div&gt;
